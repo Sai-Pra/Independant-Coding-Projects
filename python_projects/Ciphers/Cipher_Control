@@ -1,0 +1,25 @@
+print("""Please enter a valid cipher
+
+    1) Ceaser Cipher (c)
+
+    2) A1Z26 Cipher (a)
+
+    """)
+
+choice = input("Choice: ")
+
+optionsDict = {"c" : ("Ceaser_Cipher"), "a" : ("alphanumerical.py")}
+    
+while not choice in optionsDict:
+    print("""Please enter a valid cipher
+
+    1) Ceaser Cipher (c)
+
+    2) A1Z26 Cipher (a)
+
+    """)
+
+    choice = input("Choice: ")
+    
+if choice in optionsDict:
+    exec(open(optionsDict[choice]).read())

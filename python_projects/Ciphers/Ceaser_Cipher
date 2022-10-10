@@ -1,0 +1,81 @@
+def decrypt(word, key):
+    key = abs(int(key))
+    decrypt_string = ""
+    preshift_string = list(word.lower())
+    shifted_string = list()
+    i = 0
+    while i < len(preshift_string):
+        letter = preshift_string[i]
+        if not letter == " ":
+            asciiValue = ord(letter) - key
+            while asciiValue < 97:
+                asciiValue+=(122-97)
+            letter = chr(asciiValue)
+        shifted_string.append(letter)
+        i+=1
+    decrypt_string = ''.join(str(e) for e in shifted_string)
+    print("{} with key = {}".format(decrypt_string, str(key)))
+    return 0
+
+def encrypt(word, key):
+    key = abs(int(key))
+    encrypt_string = ""
+    preshift_string = list(word.lower())
+    shifted_string = list()
+    i = 0
+    while i < len(preshift_string):
+        letter = preshift_string[i]
+        if not letter == " ":
+            asciiValue = ord(letter) + key
+            while asciiValue > 122:
+                asciiValue-=(122-97)
+            letter = chr(asciiValue)
+        shifted_string.append(letter)
+        i+=1
+    encrypt_string = ''.join(str(e) for e in shifted_string)
+    print("{} with key = {}".format(encrypt_string, str(key)))
+    return 0
+
+def bruteForce(word):
+    i = 0
+    while i < 25:
+        decrypt(word, i)
+        i+=1
+    return 0
+
+def cryption(option):
+    cipherTuple = askForTwoInput()
+    if option == "e":
+        encrypt(cipherTuple[0], cipherTuple[1])
+    elif option == "d":
+        decrypt(cipherTuple[0], cipherTuple[1])
+
+def askForInput():
+    word = ""
+    word = input("Please enter the word to shift: ")
+    return word
+
+def askForTwoInput():
+    word = ""
+    key = 0
+    word = input("Please enter the word to shift: ")
+    key = input("Please enter the key: ")
+    while(not key.isdigit()):
+        key = input("Please enter the key: ")
+    cipherTuple = [word, key]
+    return cipherTuple
+
+word = input("Enter e to encrypt, d to decrypt, b to brute force: ")
+
+while not (word == "e" or word == "d" or word == "b"):
+    word = input("Enter e to encrypt, d to decrypt, b to brute force: ")
+
+# mydict = {"e": cryption("e"), "d": cryption("d"), "b": bruteForce(askForInput())}
+
+if(word == "e" or word == "d"):
+    cryption(word)
+elif(word == "b"):
+    bruteForce(askForInput())
+else:
+    print("Not Valid Entry")
+

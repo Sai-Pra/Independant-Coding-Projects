@@ -1,0 +1,40 @@
+import math
+import random
+ 
+theInput = input("Enter the message to be encrypted: ")
+message = list()
+for letter in theInput:
+    message.append(ord(letter))
+message = ''.join(str(e) for e in message)
+
+# Code from https://www.autoscripts.net/generate-random-prime-number-python/#:~:text=Generate%20a%20Random%20Prime%20Number%20in%20Python%20def,prime_list.append%20%28n%29%20return%20prime_list%20print%20%28primesInRange%20%28100%2C%20250%29%29
+
+def primesInRange(x, y):
+    prime_list = []
+    for n in range(x, y):
+        isPrime = True
+
+        for num in range(2, n):
+            if n % num == 0:
+                isPrime = False
+
+        if isPrime:
+            prime_list.append(n)
+            
+    return prime_list
+
+p = random.choice(primesInRange(1, 1000))
+q = random.choice(primesInRange(1, 1000))
+
+b = 5
+
+n = p*q
+ 
+def encrypt(messageDecimal):
+    aPowerb = math.pow(int(messageDecimal),b)
+    encryptedMessage = aPowerb % n
+    print("Encrypted Message is: ", encryptedMessage)
+    return encryptedMessage
+ 
+print("Original Message is: ", theInput)
+c = encrypt(message)
