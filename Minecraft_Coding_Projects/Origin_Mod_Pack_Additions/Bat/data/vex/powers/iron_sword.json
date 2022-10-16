@@ -1,0 +1,10 @@
+{
+	"type": "origins:starting_equipment",
+    "stacks": [
+        {
+            "item": "minecraft:iron_sword"
+        }
+    ],
+	"name": "A Gift from the Gods",
+	"description": "You start out with an iron sword"
+}

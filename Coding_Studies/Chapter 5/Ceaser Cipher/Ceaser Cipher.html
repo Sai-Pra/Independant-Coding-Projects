@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Ceaser Cipher</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px dotted blue;
+			text-align: center;
+			background-image: url("Fire.jpg");
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+		}
+	</style>
+	<script>
+			
+		
+		var instructionsVisible = false;
+		
+		var instructions = "<mark>Caeser Cipher to Plaintext or plaintext to Cipher</mark>";
+		
+		
+		
+		
+		/*
+		*Description: Takes a desired output and displays it with a bigger font size
+		*
+		*Parameters: A desired output
+		*
+		*Returns: The output on a div tag with a bigger font
+		*/
+		
+		function display(item){
+			var output = ""; 
+			
+			output += item;
+			
+			idDivPlainText.innerHTML="<font size='10'>" + output + "</font>";
+		}
+		
+		/*
+		*Description: Takes in plain text and a key and returns a cipher for all letters that are moved the key amount to the right in the alphabet
+		*
+		*Parameters: Plain text and and Key
+		*
+		*Returns: Cipher text highlighted red
+		*/
+		
+		
+		
+		function convertToCeasers(){
+			var input = idTxtAreaString.value.toUpperCase();
+			
+			var inputArray = input.split("");
+			
+			var inputLength = input.length;
+			
+			var outputArray = [];
+			
+			var key = Number(idSelect.value);
+			console.log(key)
+	
+			for (var i = 0; i < inputLength; i++){
+				var character = inputArray[i];
+				var finalValue = 0;
+				var characterNumber = Number(character.charCodeAt(0))
+					if(characterNumber < 91 && characterNumber > 64)
+					{
+						finalValue += characterNumber 
+						finalValue += key
+						if (finalValue > 90)
+						{ 
+							finalValue -= 26
+						}
+						finalValue = String.fromCharCode(finalValue);
+						outputArray.push(finalValue);
+						console.log(finalValue);
+					
+					}
+					else
+					{
+						finalValue += characterNumber
+						finalValue = String.fromCharCode(finalValue);
+						outputArray.push(finalValue);
+					}
+			}
+			console.log(outputArray);
+			var finalOutput = outputArray.join("")
+			display(finalOutput);
+			document.getElementById("idDivPlainText").style.backgroundColor = "red";
+		}
+		
+		/*
+		*Description: Takes in Caeser Cipher text and a key and returns a plain text for all letters that are moved the key amount to the left in the alphabet
+		*
+		*Parameters: Cipher text and and Key
+		*
+		*Returns:  Plain text highlighted red
+		*/
+		
+		
+		
+		function decrypt(){
+			var input = idTxtAreaString.value.toLowerCase();
+			
+			var inputArray = input.split("");
+			
+			var inputLength = input.length;
+			
+			var outputArray = [];
+			
+			var key = Number(idSelect.value);
+	
+	
+			for (var i = 0; i < inputLength; i++){
+				var character = inputArray[i];
+				var finalValue = 0;
+				var characterNumber = Number(character.charCodeAt(0))
+					if(characterNumber < 122 && characterNumber > 97)
+					{
+						finalValue += characterNumber 
+						finalValue -= key
+						if (finalValue < 97)
+						{ 
+							finalValue += 26
+						}
+						finalValue = String.fromCharCode(finalValue);
+						outputArray.push(finalValue);
+						console.log(finalValue);
+					
+					}
+					else
+					{
+						finalValue += characterNumber
+						finalValue = String.fromCharCode(finalValue);
+						outputArray.push(finalValue);
+					}
+			}
+			console.log(outputArray);
+			var finalOutput = outputArray.join("")
+			display(finalOutput);
+			document.getElementById("idDivPlainText").style.backgroundColor = "green";
+		}
+		// Code citation:
+		// 		Author: Mozilla Foundation
+		//		Accessed: 10/16/2017
+		//		URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+		// 		Purpose: Generate a random integer, n, such that min <= n <= max
+			
+			
+			
+			function randomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) ) + min;
+		}
+		/*
+		*Description: Uses the random int function and generates a random key from 1 to 25
+		*
+		*Parameters: Random int function 
+		*
+		*Returns: A radom key in the dropdown menu
+		*/	
+			
+			
+			
+			function randomKey(){
+			key = randomInt(1, 25)
+			idSelect.value=key;
+		}
+			/*
+		*Description: Turns the instructions on and off
+		*
+		*Parameters: Does user click on button
+		*
+		*Returns:  Instructions if not there before, or removes instructions
+		*/
+			
+			
+			function toggleInstructions(){
+				if (instructionsVisible == true){
+					document.getElementById('idDivInstructions').innerHTML="";
+					instructionsVisible = false
+				}
+				else {
+					document.getElementById('idDivInstructions').innerHTML=instructions;
+					instructionsVisible = true
+				}
+			
+			
+		
+			}
+	
+		</script>
+</head>
+
+
+
+<body>
+<h1><mark>Ceaser Cipher</mark></h1>
+<br>
+<img id="idPic" src="Sai.jpg" width="500" height="500">
+<br>
+<textarea id="idTxtAreaString" rows="6" cols="50" >Type string here</textarea>
+<br>
+<mark>Key:</mark>
+	<select id="idSelect">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option value="24">24</option>
+		<option value="25">25</option>
+	</select>
+<br>
+<input type="button" value="Encrypt" onClick="convertToCeasers()">
+<input type="button" value="Decrypt" onClick="decrypt()">
+<input type="button" value="Random Key" onClick="randomKey()">
+<input type="button" value="Instructions" onClick="toggleInstructions()">
+<br>
+<div id="idDivPlainText"></div>
+<div id="idDivInstructions"><div>
+	
+</body>
+
+</html>

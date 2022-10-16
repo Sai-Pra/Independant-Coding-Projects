@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"dog:scale_change",
+		"dog:passive_abilities",
+		"dog:dog_boost",
+		"dog:prevent_shield_use",
+		"dog:wolfpassive",
+		"dog:dog_tamer"
+	],
+	"icon": "minecraft:bone",
+	"order": 10,
+	"impact": 2,
+	"name": "Dog",
+	"description": "You are a good boy of Joy and Pleasure"
+}

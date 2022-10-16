@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Base 10 to Base 2 Calculator</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px solid #8B4513;
+			text-align: center;
+			background-image: url("Sai.jfif");
+			font-family: Georgia, serif;
+		}
+	</style>
+	<script>
+
+		/**		
+		 * decimalToHexadecimal(decimalNumber) converts a decimal number into
+		 * a decimal number and returns it
+		 *
+		 * Parameters: A Hexadecimal number
+		 * Return value: A decimal value
+		 */		
+		function decimalToHexadecimal(decimalNumber){
+			var hexString = "";
+			var hexArray = [];
+			
+			while (decimalNumber > 0){
+						
+				var remainder = decimalNumber % 16;
+				
+					if (remainder == 15)
+					{
+						remainder = "F";
+					}
+					else if (remainder == 14)
+					{
+						remainder == "E";
+					}
+					else if (remainder == 13)
+					{
+						remainder == D;
+					}
+					else if (remainder == 12)
+					{
+						remainder == "C";
+					}
+					else if (remainder == 11)
+					{
+						remainder == "B";
+					}
+					else if (remainder == 10)
+					{
+						remainder == "A";
+					}
+						
+				hexString += remainder
+				decimalNumber = Math.floor(decimalNumber/16);
+			 
+			}
+			
+			hexArray = hexString.split("");
+			hexArray.reverse();
+			hexString = hexArray.join("");
+			
+
+			return hexString;
+		}
+
+		/** 
+		 * STUDENT TASK: displayOutput displays the output in a sentence
+		 *
+		 * Parameters: a decimal number
+		 * Return value: A sentence with both the decimal number and a hexadecimal number
+		 */		
+		function displayOutput(item1,item2){
+
+			var output ="";
+			
+			output += item1 + " in Decimal is " + item2 + " in Hexadecimal!"
+			
+			idDiv.innerHTML = output;
+		}
+		
+		/** 
+		 * STUDENT TASK: Runs the conversion
+		 *
+		 * Parameters: A decimal number in our text
+		 * Return value: Displays the two numbers
+		 */		
+		function convert(){
+			
+			var decimalNumber, hexNumber;
+			
+			decimalNumber = idDecNum.value
+						
+			var hexNumber = decimalToHexadecimal(decimalNumber);
+			console.log(hexNumber)			
+						
+			displayOutput(decimalNumber, hexNumber);
+		}
+		
+	</script>
+</head>
+<body>
+	<font color="white"><h1>Base 10 to Base 16 Calculator</h1></font>
+	<img src="coffee.jpg">
+	<br>
+	<input type="text" id="idDecNum" placeholder="Decimal Number">
+	<br>
+	<input type="button" value="Convert to Hexadecimal" onClick="convert()">
+	<br>
+	<br>
+	<div id="idDiv"></div>
+	<br>
+	<br>
+	
+	
+</body>
+</html>

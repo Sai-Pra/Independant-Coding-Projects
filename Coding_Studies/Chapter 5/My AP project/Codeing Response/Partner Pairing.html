@@ -1,0 +1,364 @@
+<html>
+	<head>
+		<!-- Enter an appropriate title -->
+		<title>Partner Up!</title>
+		<style>
+			body
+			{
+				text-align: center;
+				background-color: orange;
+				color: #000000;
+				border: 80px dotted black;
+			}
+			
+
+		</style>
+		<script>
+			var studentArray = [];
+			var partnerArray = [];
+			var instructionsVisible = false;
+			var instructions = "<mark>Add the students who you would like to have the option to call on, and then either call on one or two of them. <br> If you have to partner them up, you may click the partner up button to assign two people to eachother, and the odd one who doesn't have a partner will be shown at the end if applicable. <br> When done, click the reset button to clear the names</mark>";
+			
+			
+		   /*Tile:Caeser Cipher
+		 	*Author: Saipranav Venkatakrishnan
+		   	*Date Created: November 26th, 2019
+			*
+			*Description: Takes a desired output and displays it with a bigger font size
+			*
+			*Parameters: A desired output
+			*
+			*Returns: The output on a div tag with a bigger font
+			*
+		    */
+			function display(item)
+			{
+			var output = ""; 
+			
+			output += item;
+			
+			idDivOutput.innerHTML="<font size='10'>" + output + "</font>";
+			}
+			
+			
+		   /*Description: Adds students to an array of stuents to choose from
+			*
+			*Parameters: A student in the text box
+			*
+			*Returns: All the students to choose from, incluing the new stdent
+			*
+		    */
+			function addPeople()
+			{
+			var person = " " + idStudentText.value
+			if (person == "  ")
+			{
+			
+				display("Please enter an actual person");
+				console.log(person)
+			
+			}
+			else if (person == " ")
+			{
+			
+				display("Please enter an actual person")
+			
+			
+			}
+			else
+			{
+			studentArray.push(person)
+			display(studentArray);
+			idStudentText.value=""
+			if(person == " pootis")
+			{
+				idDivPootis.innerHTML = ";) EASTER EGG 1/5;) ... TF2 brother?";
+			
+			}
+			else if(person == " Pootis")
+			{
+			
+				idDivPootis.innerHTML = ";) EASTER EGG 1/5;) ... TF2 brother?";
+			
+			}
+			else if(person == " Maaz")
+			{
+			
+				idDivMaaz.innerHTML = ";) EASTER EGG 2/5;) ... Thanks for the advice Maaz";
+			
+			}
+			else if(person == " maaz")
+			{
+			
+				idDivMaaz.innerHTML = ";) EASTER EGG 2/5;) ... Thanks for the advice Maaz";
+			
+			}
+			else if(person == " joe")
+			{
+			
+				idDivJoe.innerHTML = ";) EASTER EGG 3/5;) ... Joe MAMA?";
+			
+			}
+			else if(person == " Joe")
+			{
+			
+				idDivJoe.innerHTML = ";) EASTER EGG 3/5;) ... Joe MAMA?";
+			
+			}
+			else if(person == " rithvik")
+			{
+			
+				idDivRithvik.innerHTML = ";) EASTER EGG 4/5;) ... Brother from another mother";
+			
+			}
+			else if(person == " Rithvik")
+			{
+			
+				idDivRithvik.innerHTML = ";) EASTER EGG 4/5;) ... Brother from another mother";
+			
+			}
+			else if(person == " caden")
+			{
+			
+				idDivCaden.innerHTML = ";) EASTER EGG 5/5;) ... the cool one";
+			
+			}
+			else if(person == " Caden")
+			{
+			
+				idDivCaden.innerHTML = ";) EASTER EGG 5/5;) ... the cool one";
+			
+			}
+			else{
+				idDivPootis.innerHTML = "";
+			
+			}
+			}
+			}
+		
+			// Code citation:
+			// 	Author: Mozilla Foundation
+			//	Accessed: 10/16/2017
+			//	URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+			// 	Purpose: Generate a random integer, n, such that min <= n <= max
+			
+			function randomInt(min, max) 
+			{
+			return Math.floor(Math.random() * (max - min + 1) ) + min;
+			}
+		
+		   /*Description: Picks a random student from the studentArray and displays he student in div tags
+			*
+			*Parameters: Needs to have at least one students in the array, and is activated by clickng it
+			*
+			*Returns: A random person in the array displayed in a div tag
+			*
+		    */
+			function pick()
+			{
+			arrayLength = studentArray.length
+			var personPicker = studentArray[randomInt(0, arrayLength - 1)];
+			display(personPicker);
+			
+			
+			}
+			
+		   /*Description: Picks a random student from the first half of studentArray and adds student to partnerArray
+			*
+			*Parameters: Needs to have at least one students in the first half of the studentArray, or two students in the student array, and is activated by clickng the button pick two
+			*
+			*Returns: A random person for the first half of the studentArray is added to partnerArray
+			*
+		    */
+			
+			function pick3()
+			{
+			arrayLength = studentArray.length
+			var halfArray = Math.round(arrayLength/2)
+			console.log(halfArray)
+			var arrayPerson = randomInt(0, halfArray - 1)
+			var personPicker = studentArray[arrayPerson];
+			partnerArray.push(personPicker)
+			console.log(personPicker)
+			
+			}
+			
+		   /*Description: Picks a random student from the 2nd half of studentArray and adds student to partnerArray
+			*
+			*Parameters: Needs to have at least one students in the 2nd half of the studentArray, or two students in the student array, and is activated by clickng the button pick two
+			*
+			*Returns: A random person for the 2nd half of the studentArray is added to partnerArray
+			*
+		    */
+			
+			
+			function pick2()
+			{
+			arrayLength = studentArray.length
+			var halfArray = Math.round(arrayLength/2)
+			console.log(halfArray)
+			var arrayPerson = randomInt(halfArray, arrayLength-1)
+			var personPicker = studentArray[arrayPerson];
+			partnerArray.push(personPicker)
+			console.log(personPicker)
+			
+			}
+			
+		   /*Description: Reset eerything to how it loaded when first open
+			*
+			*Parameters: Button needs to be clicked
+			*
+			*Returns: Clears the current students in the array, the div tags, and the text box, and sets boolean instructionsVisible to false
+			*
+		    */
+			
+			function reset()
+			{
+			
+			studentArray = [];
+			idDivOutput.innerHTML="";
+			idStudentText.value="";
+			idDivPootis.innerHTML="";
+			idDivJoe.innerHTML="";
+			idDivRithvik.innerHTML="";
+			idDivCaden.innerHTML="";
+			idDivMaaz.innerHTML="";
+			idDivInstructions.innerHTML="";
+			instructionsVisible = false;
+			}
+			
+		   /*Description: Picks twos tudents from the studentsTyped in
+			*
+			*Parameters: Needs the button to be clicked while two students are in the list of students to choose from
+			*
+			*Returns: Two random students, who aren't the same person, displayed in a div tag with a message
+			*
+		    */
+			
+			function pair()
+			{
+			idDivOutput.innerHTML="";
+			partnerArray = [];
+			console.log(partnerArray[0])
+			console.log(partnerArray[1])
+			pick3();
+			pick2();
+			display(partnerArray[0] + " and " + partnerArray[1] + " have been chosen!")
+			
+			}
+			
+           /*Description: Uses a boolean value to turn on and off instructions
+			*
+			*Parameters: Needs the button to be clicked
+			*
+			*Returns: The instructions or no instructions, depending on the boolean value, highlighted in yellow
+			*
+		    */
+		
+			function toggleInstructions(){
+				if (instructionsVisible == true){
+					document.getElementById('idDivInstructions').innerHTML="";
+					instructionsVisible = false
+				}
+				else {
+					document.getElementById('idDivInstructions').innerHTML=instructions;
+					instructionsVisible = true
+				}
+			
+			
+		
+			}
+			
+			// Code citation:
+			// 	Author: Nitin Patel
+			//	Accessed: 12/11/19
+			//	URL: https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb
+			// 	Purpose: Shuffle an array, no matter the size
+			
+			
+			function shuffle() {
+				studentArray.sort(function(a, b){return 0.5 - Math.random()});
+			}
+		
+			function partner()
+			{
+				var partnerArray = [];
+				var arrayLength = studentArray.length
+				
+				if(arrayLength % 2 == 1 )
+						{
+				
+							studentArray.push("no one else")
+							
+						}
+						
+				for(var i = 0; i < arrayLength; i += 2)
+				{
+					var partner1 = studentArray[i]
+					var partner2 = studentArray[i + 1]
+					
+					console.log(partner1)
+					console.log(partner2)
+					partnerArray.push(partner1 + " and " + partner2);
+					
+					
+				}
+				console.log(partnerArray)
+				display(partnerArray)
+				
+				if(studentArray[arrayLength] = "no one else")
+					{
+						studentArray.pop()
+					}
+				
+				shuffle(studentArray)
+			}
+		
+		
+		
+		
+
+		
+		
+		
+		</script>
+	</head>	
+	<body>
+	
+	<h1>!Classroom Name Caller!</h1>
+	<br>
+	<br>
+	<img id="idClass" src="Classroom.jfif" width="500" height="700">
+	<br>
+	<br>
+	<input type="button" value="Add a Student" onClick="addPeople()">
+	<br>
+	<br>
+	<input type="button" value="Choose 1 Student" onClick="pick()">
+	<br>
+	<br>
+	<input type="button" value="Choose 2 Students" onClick="pair()">
+	<br>
+	<br>
+	<input type="button" value="Reset" onClick="reset()">
+	<br>
+	<br>
+	<input type="button" value="Instructions" onClick="toggleInstructions()">
+	<br>
+	<br>
+	<input type="button" value="Partner Up" onClick="partner()">
+	<br>
+	<br>
+	<input type="text" placeholder="Type student name here" id="idStudentText">
+	<div id="idDivOutput"></div>
+	<div id="idDivPootis"></div>
+	<div id="idDivMaaz"></div>
+	<div id="idDivJoe"></div>
+	<div id="idDivRithvik"></div>
+	<div id="idDivCaden"></div>
+	<div id="idDivInstructions"></div>
+	
+	
+	</body>
+		
+		

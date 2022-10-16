@@ -1,0 +1,36 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+		{
+			"type": "origins:apply_effect",
+			"effects": [
+			{
+				"effect": "minecraft:strength",
+				"amplifier": 0,
+				"duration": 80,
+				"show_particles": true
+			},
+			{
+				"effect": "minecraft:speed",
+				"amplifier": 0,
+				"duration": 80,
+				"show_particles": false
+			}]
+		},
+		{    
+			"type": "origins:play_sound",
+				"sound": "minecraft:entity.vex.charge"
+		}
+	  ]
+	},
+	"key": "primary",
+	"cooldown": 200,
+	"hud_render": {
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+		"bar_index": 5
+	},
+	"name": "Vex Rage",
+	"description": "You gain Strength, readying yourself to strike your foes"
+}

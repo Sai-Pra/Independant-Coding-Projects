@@ -1,0 +1,45 @@
+{
+	"type": "origins:action_on_callback",
+	"entity_action_added": {
+		"type": "origins:and",
+		"actions": [
+		{
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:base 0.45 @s",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:motion 2 @s",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:reach 1 @s",
+			"permission_level": 4
+		}
+		]
+	},
+	"entity_action_removed": {
+		"type": "origins:and",
+		"actions": [
+		{
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:base 1 @s",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:motion 1 @s",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:reach 1 @s",
+			"permission_level": 4
+		}
+		]
+	},
+	"name": "Tiny",
+	"description": "You are half as big as a regular player, but twice as fast"
+}

@@ -1,0 +1,21 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 50,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute as @e[type=minecraft:iron_golem, distance=..32] run data modify entity @s AngryAt set from entity @p[team=pillagersx] UUID"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute as @e[type=minecraft:snow_golem, distance=..32] run data modify entity @s AngryAt set from entity @p[team=pillagersx] UUID"
+            }
+        ]
+    },
+	"name": "Golems Agressive",
+    "description": "Iron- and Snow Golems aggro you, as your race has had previous arguments with them"
+}

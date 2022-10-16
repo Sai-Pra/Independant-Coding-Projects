@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>RGB/Hex Color Example</title>
+	<style>
+			body {
+					padding: 10px 0;
+					border: 5px solid gray;
+					text-align: center;
+					background-color: rgb(240,240,240)
+					font-family: "Trebuchet MS", Helvetica, sans-serif;
+			}
+	</style>
+	<script>
+	
+			// Comment
+			function changeBackgroundColor(color){
+					document.body.style.backgroundColor = color;
+					console.log(color)
+			}
+			
+			// Comment
+			function displayMessage(text){
+					var output = "This color is represented by the value ";
+					output += text;
+					output += ".";
+					
+					document.getElementById("idDiv").innerHTML = output;
+			}
+			
+			// Comment
+			function masterFunction(){
+					var rgbString = document.getElementById('idRGBValue').value
+					
+					changeBackgroundColor(rgbString);
+					
+					displayMessage(rgbString);
+			}
+			
+	</script>
+</head>
+
+<body>
+		<h1>RGB/Hex Color Example</h1>
+		<h3>Enter one of the following</h3>
+		
+		An RGB string such as "rgb(255,0,255)" (number should be integers between 0 and 255).
+		<br><br>
+		An RGB hex value such as #FF00FF" (each pair of hex values should be between 00 and FF).
+		<br><br>
+		<input type="text" id="idRGBValue">
+		<br><br>
+		<input type="button" value="Change Background" onClick="masterFunction()">
+		<br><br>
+		<img src="rainbow.jpg">
+		<br><br>
+		<div id="idDiv"></div>
+</body>
+</html>

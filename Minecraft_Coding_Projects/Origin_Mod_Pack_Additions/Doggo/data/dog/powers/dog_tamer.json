@@ -1,0 +1,26 @@
+{
+	"type": "origins:active_self",
+	"entity_action_added": {
+		"type": "origins:and",
+		"actions": [
+		{
+			"type": "origins:execute_command",
+			"command": "/summon wolf ~ ~1 ~ 3",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "give @s bone 30",
+			"permission_level": 4
+		}
+		]
+    },
+    "key": "secondary",
+	"cooldown": 1000000,
+	"hud_render": {
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+		"bar_index": 5
+	},
+	"name": "Dog Tamer",
+	"description": "You summon 3 dogs, along with the bones to tame them!"
+}

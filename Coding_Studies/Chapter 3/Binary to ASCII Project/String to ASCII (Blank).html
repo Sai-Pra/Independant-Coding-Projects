@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>String to ASCII</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px solid green;
+			text-align: center;
+			background-image: url("Viking emblem.png");
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+		}
+	</style>
+	<script>
+	
+		// This function takes a string of readable characters and converts
+		// them to 8-bit (padded) binary integers using the ASCII encoding
+		function convertToASCII(){
+	
+			var input = document.getElementById("idTxtAreaString").value;
+			// TO DO: declare a variable named 'input'
+			// TO DO: assign 'input' the value of the text in the text area
+			
+			var inputArray = input.split("");
+			// TO DO: split 'input' into an array of characters using input = input.split("");
+			
+			var inputLength = input.length;
+			// TO DO: declare a variable inputLength and assign to it the length of the 'input' array
+			
+			var outputString = "";
+			// TO DO: declare a variable outputString and assign to it the value of an empty string
+			
+			console.log
+			for (var i = 0; i < input.length; i++){
+				var character = inputArray[i];
+				character = character.charCodeAt(0);
+				character = decimalToBinary(character);
+				character = addPadding(character);
+				outputString += character;
+				
+				console.log
+			
+			// TO DO: write a for loop to do the following to each item:
+			//			1) declare a variable "character" that equals the i-th element in the array 			
+			//			2) convert "character" from a readable character to a decimal integer using character = character.charCodeAt(0);
+			//			3) convert "character" from a decimal integer to a binary integer
+			//			4) add padding to this binary integer using character = addPadding(character);
+			// 			5) concatenate "character" onto "outputString"
+			
+			// TO DO: display the value of outputString
+		}
+			console.log
+			display(outputString);
+		}
+		function display(item){
+			var output = ""; 
+			
+			// TO DO 
+			output += item;
+			
+			idDiv.innerHTML=output;
+		}
+
+		// This function takes a decimal number and returns its binary equivalent
+		// You can copy/paste this from your previous work		
+		function decimalToBinary(decimalNumber){
+			var binaryString = "";
+			var binaryArray = []; 
+
+			// TO DO 
+			while (decimalNumber > 0)
+			{
+				var remainder = decimalNumber % 2;
+				binaryString += remainder;
+				decimalNumber = Math.floor(decimalNumber/2);																															
+			}
+			
+			binaryArray = binaryString.split("");
+			binaryArray.reverse();
+			binaryString = binaryArray.join("");
+			
+			
+			return binaryString;			
+		}
+
+		// This function takes a string and concatenates "0" onto it
+		// until the string is exactly 8 characters long, then returns
+		// this value
+		function addPadding(inputString){
+			while (inputString.length < 8){
+				inputString = "0" + inputString;
+			}
+			
+			return inputString;
+		}
+	</script>
+</head>
+<body>
+	<font color="black"><h1>String to ASCII</h1></font>
+	<br>
+	<img src="ascii-chart.png" id="ascii-chart" width="700" height="600">
+	<br>
+	<br>
+	<input type="button" value="Convert to ASCII" onClick="convertToASCII()">
+	<br>
+	<div id="idDiv"></div>
+</body>
+</html>

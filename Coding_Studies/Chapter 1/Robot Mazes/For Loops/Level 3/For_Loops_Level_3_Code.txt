@@ -1,0 +1,20 @@
+var hop = 2;
+		
+hop = hop + 1;
+	
+function multiMove(number){
+	for (var i=0;i<number;i++){
+		moveForward();
+	}
+}
+
+function robotInstructions(){
+	if (hop == 3){
+		hop = 2*hop;
+		multiMove(hop);
+	}
+	else {
+		multiMove(1);
+	}
+	
+}	

@@ -1,0 +1,186 @@
+<html>
+	<head>
+		<!-- Enter an appropriate title -->
+		<title>Letter to Santa</title>
+		<style>
+			body
+			{
+				text-align: center;
+				background-color: #EA4630;
+				color: #146B3A;
+				border: double black;
+			}
+			
+			input
+			{
+				border: solid #00CC33;
+			}
+			
+			div
+			{
+				color: #FFFFFF;
+			}
+		</style>
+		<script>
+			/*
+			 * Create the following global variables:
+			 *	- name (String that will hold user's name)
+			 *  - itemArray (array that will hold user's items)
+			 *  - numberOfItems (number identifying how many items are currently in the array)
+			 */
+			var name;
+			var numberOfItems = 0;
+			var itemArray = [];
+			var addButton = "<input type='button' value='Add Item to List' onClick='addItem()'>";
+			
+			/*
+			 * Copy the randomInt(min, max) function from your previous projects
+			 * Don't forget to use proper citations!
+			 */
+			function randomInt(min, max)
+			{
+				min = Math.ceil(min);
+				max = Math.floor(max);
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			
+			/*
+			 * Create a function setName() that does the following:
+			 *  - Reads and stores the user's name in the global variable
+			 *	- Generates and displays a welcome message (with user's name) in the output <div>
+			 *  - Changes the 'Set Name' button to one that says 'Add Item' and has a corresponding onClick event handler
+			 *  - Changes the question <div> to ask what item they would like to add
+			 *  - Change the value of the text box to an empty string
+			 */
+			function setName()
+			{
+				name = idTxtResponse.value;
+				idDivOutput.innerHTML = "Welcome " + name + ", I hope you have been a good boy/girl this year!";
+				idButtonContainer.innerHTML = addButton;
+				idDivQuestion.innerHTML = "What item would you like to add to your Christmas List?"	 
+				idTxtResponse.value = "";
+			}
+			
+			/*
+			 * Create a function addItem() that does the following:
+			 *	- Reads and stores the user's entry in a local variable
+			 *  - Add the item to the global variable array
+			 *  - Change the output <div> to display a sentence describing what item was added
+			 *  - Update the global variable numberOfItems appropriately
+			 *  - Test if five (5) items have been entered.  If so, call the createLetter() function.
+			 *  - Change the value of the text box to an empty string
+			 */
+			function addItem()
+			{
+				var item = idTxtResponse.value;
+				itemArray.push(item);
+				idDivOutput.innerHTML = "You have added " + item + " to your Christmas list!";
+				numberOfItems++;
+				if (numberOfItems == 5)
+				{
+					createLetter();
+				}
+				idTxtResponse.value = "";
+
+			}
+			
+			/*
+			 * Create a function createHeader() that does the following:
+			 *	- Create a local variable String to store the header/introduction of your letter
+			 *  - Include numberOfItems in your header
+			 *  - Return the local variable String
+			 *  - Make use of <br> statements to properly space your letter
+			 */
+			function createHeader()
+			{
+				var header = ""
+				header += "Dear Santa,<br>I would like the following " + numberOfItems + " items for Christmas this year:<br><br>";
+				return header;
+			}
+			
+			/*
+			 * Create a function creatBody() that does the following:
+			 *	- Create a local variable String to store the body of your letter
+			 *  - Write a 'for loop' that traverses through each item in the global variable array
+			 *  	- Concatenate the current item to your local variable String
+			 *  - Return the local variable String
+			 *  - Make use of <br> statements to properly space your letter
+			 */
+			function createBody()
+			{
+				var body = "";
+				for (var i = 0; i < itemArray.length; i++)
+				{
+					body += itemArray[i] + "<br>"
+				}
+				body += "<br>"
+				return body;
+			}
+
+			/*
+			 * Create a function createFooter() that does the following:
+			 *	- Create a local variable String to store the footer of your letter
+			 *  - Test if there are currently four (4) or less items in the global variable array
+			 *		- If so, concatenate an appropriate footing (including user's name) to the local variable String
+			 *  - Otherwise,
+			 *		- generate a random number within the range of your global variable array
+			 *		- Concatenate a footer (including user's name) integrating a randomly selected item 
+			 *        from your list to the local variable String
+			 *  - Return the local variable String
+			 *  - Make use of <br> statements to properly space your letter
+			 */
+			function createFooter()
+			{
+				var footer = "";
+				if (numberOfItems <= 4)
+				{
+					footer += "Thank you for your consideration Santa!<br>" + "The best kid ever, " + name;
+				}
+				else
+				{
+					var num = randomInt(0, numberOfItems - 1);
+					footer += "Since I'm greedy and asked for 5 things, my one favorite item is: " + itemArray[num];
+					footer += "<br>The best kid ever, " + name;
+				}
+				return footer;
+			}
+			
+			/*
+			 * Create a function createLetter() that does the following:
+			 *	- Create a local variable String to store the entirety of your letter
+			 *  - Call createHeader() and concatenate its return value to the local variable String
+			 *  - Call createBody() and concatenate its return value to the local variable String
+			 *  - Call createHeader() and concatenate its return value to the local variable String
+			 *	- Display the local variable in the output <div>
+			 */
+			function createLetter()
+			{
+				var formattedList = "";
+				formattedList += createHeader();
+				formattedList += createBody();
+				formattedList += createFooter();
+				idDivOutput.innerHTML = formattedList;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<!-- Enter an appropriate header -->
+		<h1>Letter to Santa!</h1>
+		<!-- Create a <div> to hold a question -->
+		<div id="idDivQuestion">What is your name?</div>
+		<br>
+		<!-- Create a text box for the user to type in -->
+		<input type="text" placeholder="Type response here" id="idTxtResponse">
+		<br><br>
+		<!-- Create a <div> with id="idButtonContainer" to hold code for a button -->
+		<!-- The button should say "Set Name" and call the setName() function when clicked -->
+		<div id="idButtonContainer"><input type="button" value="Set Name" onClick="setName()"></div>
+		<br>
+		<!-- Create a button that says "Create Santa's Letter" and calls the function createLetter() when clicked -->
+		<input type="button" value="Create Santa's Letter" onClick="createLetter()">
+		<br><br>
+		<!-- Create a <div> to hold an output -->
+		<div id="idDivOutput"></div>
+	</body>
+</html>

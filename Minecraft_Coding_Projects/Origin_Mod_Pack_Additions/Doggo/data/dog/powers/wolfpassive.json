@@ -1,0 +1,22 @@
+{
+    "type": "origins:action_over_time",
+    "name": "Wolf Alliance",
+    "description": "Your Brotheran, the Wolf, is automatically friendly to you. They arent tamed, but they wont attack you if you hit them.",
+    "hidden": false,
+    "interval": 100,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @s"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @e[type=minecraft:wolf, distance=..40]"
+            }
+        ]
+    }
+}

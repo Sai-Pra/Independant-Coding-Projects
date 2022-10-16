@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hexadecimal to Decimal</title>
+	<style> 
+		body {
+			padding: 100px 10;
+			border: 10px dotted blue;
+			text-align: center;
+			background-image: url("Plasma.jpg");
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+		}
+	</style>
+	<!-- ADD CSS HERE BETWEEN <style> AND </style> TAGS-->
+
+	<script>
+		var output = "";
+		
+		// DON'T FORGET TO WRITE A DESCRIPTIVE COMMENT FOR THIS FUNCTION		
+		function hexToDecimal(hexNumber){
+			var hexList = hexNumber.split("");
+			hexList.reverse();
+			var decimalAnswer = 0;
+			var text = idHexNum.value
+			console.log(text)
+			
+			var num = parseFloat(hexList[i]);
+				
+			for (var i = 0; i < hexList.length; i++)
+			{
+			var num = parseFloat(hexList[i]);	
+				
+				if (hexList[i] == "A")
+					num = 10
+				else if (hexList[i] == "B")
+					num = 11
+				else if (hexList[i] == "C")
+					num = 12
+				else if (hexList[i] == "D")
+					num = 13
+				else if (hexList[i] == "E")
+					num = 14
+				else if (hexList[i] == "F")
+					num = 15
+				
+					
+				var value = 16**i * num;
+				decimalAnswer += value
+			}
+			return decimalAnswer;
+		}
+			
+	
+	
+	// DON'T FORGET TO RETURN Number
+		/** 
+		 * display(item) displays a message on the website
+		 * by putting text between <div id='idDiv'> and </div>
+		 *
+		 * Parameters: a string
+		 * Return value: none
+		 */	
+		function display(item1,item2){
+
+			var output = item1; 
+			
+			output += ' in hex is ';
+			
+			output += item2;
+			
+			output += ' in decimal.'
+			
+			document.getElementById('idDiv').innerHTML=output;
+		}
+		
+		/** 
+		 * convert() does the following: 
+		 *      get a value from the textbox
+		 *      
+		 * 		call the hexToDecimal function
+		 *      and stores it in the variable decimalNumber
+		 * 
+		 *      call the display function 
+		 *
+		 * Parameters: none
+		 * Return value: none
+		 */			
+		function convert(){
+			var hexNumber = document.getElementById("idHexNum").value;
+			
+			var decimalNumber = hexToDecimal(hexNumber);
+			
+			display(hexNumber, decimalNumber);
+		}
+		
+	</script>
+</head>
+<body>
+	<h1><font color="white">Hexadecimal to Decimal</font></h1>
+	<h4> < Base 16 to Base 10 > </h4>
+	<img src="hex-intro.png" id="hex-intro" width="350" height="300">
+	<br>
+	<input type="text" id="idHexNum" placeholder="Hexadecimal Number">
+	<input type="button" value="Convert to Decimal" onClick="convert()">
+	<div id="idDiv"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<p1><font color="white">Thank you for visiting my Hexadecimal to Decimal Site! I would like to give a shoutout to Mr. Nichols, who the man who taught me how to code. On a separate note, I hope you enjoy this site, and use this powerful tool wisely.</font></p1>
+	
+</body>
+</html>

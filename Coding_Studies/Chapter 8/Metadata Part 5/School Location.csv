@@ -1,0 +1,20 @@
+OBJECTID,NAME,ADDRESS,CITY,ZIP,LAT,LON,COUNTY_FIP,TYPE,ABBREV,PRESIDENT,ZYR_4YR,WEB_SITE,ENROLL_FAL,ENROLL_F_1
+1,Bismarck State College,1500 EDWARDS AVE,Bismarck,58501,46.820503,-100.817322,ND015,Public,BSC,Dr. Donna Thigpen,2,www.bismarckstate.edu,3044,2112
+2,Dickinson State University,291 CAMPUS DR,Dickinson,58601,46.881922,-102.799897,ND089,Public,DSU,Dr. Lee A. Vickers,4,www.dickinsonstate.com,2101,1512
+3,Lake Region State College,1801 COLLEGE DR,Devils Lake,58301,48.126276,-98.865639,ND071,Public,LRSC,Sharon Etemad,2,www.lrsc.nodak.edu,1308,364
+4,Mayville State University,330 3RD ST NE,Mayville,58257,47.503546,-97.325494,ND097,Public,MaSU, ,4,www.mayvillestate.edu,755,579
+5,Minot State University,500 UNIVERSITY AVE W,Minot,58707,48.245360,-101.301304,ND101,Public,MiSU,Dr. H. Erik Shaar,4,www.minotstateu.edu,3515,2553
+6,Minot State University Bottineau,105 SIMRALL BLVD,Bottineau,58318,48.831219,-100.440651,ND009,Public,MiSU-B,Dr. H. Erik Shaar,2,www.misu-b.nodak.edu,526,349
+7,North Dakota State College of Science,800 6TH ST,Wahpeton,58076,46.257100,-96.607958, ,Public,NDSCS,Sharon Y. Hart,2,www.ndscs.nodak.edu,2292,1873
+8,University of North Dakota,411 Twamley Hall,Grand Forks,58202,47.920232,-97.073122, ,Public,UND,Dr. Charles E. Kupchella,4,www.und.edu,11764,9556
+9,North Dakota State University,1301 N UNIVERSITY DR,Fargo,58102,46.892860,-96.797542,ND017,Public,NDSU,Joseph A. Chapman,4,www.ndsu.edu,10538,8677
+10,Valley City State University,101 COLLEGE ST SW,Valley City,58072,46.918977,-98.002675,ND003,Public,VCSU,Dr. Ellen-Earle Chaffee,4,www.vcsu.nodak.edu,1005,741
+11,Williston State College,1410 UNIVERSITY AVE E,Williston,58801,48.157876,-103.614183,ND105,Public,WSC,Joe McCann,2,www.wsc.nodak.edu,748,525
+12,Cankdeska  Cikana Community College,101 MAIN ST,Fort Totten,58335,48.05014,-99.079162, ,Tribal,CCCC,Larry Belgarde,2,hoopster.little-hoop.cc.nd.us,169,0
+13,Fort Berthold Community College,220TH 8TH AVE N,New Town,58763,47.979277,-102.491646, ,Tribal,FBCC,Elizabeth Demaray,2,www.fbcc.bia.edu,212,0
+14,Sitting Bull College,1341 92ND ST,Fort Yates,58538,46.139576,-100.680167, ,Tribal,SBC,Ron McNeil,2,www.sittingbull.edu,194,0
+15,Turtle Mountain Community College,Fish Lake Road BIA #7,Belcourt,58316,48.805404,-99.788399, ,Tribal,TMCC,"Dr. Gerald ""Carty"" Monette",2,www.turtle-mountain.cc.nd.us,704,0
+16,United Tribes Technical College,3315 UNIVERSITY DR,Bismarck,58504,46.766311,-100.762087, ,Tribal,UTTC, ,2,www.unitedtribestech.com,302,0
+17,Jamestown College,6001 COLLEGE LN,Jamestown,58405,46.915297,-98.700852,ND093,Private,JC, ,4,www.jc.edu,1136,1058
+18,Trinity Bible College,50 6TH AVE S,Ellendale,58436,46.000223,-98.519854,ND021,Private,TBC, ,2,www.trinitybiblecollege.edu,255,0
+19,University of Mary,7500 UNIVERSITY DR,Bismarck,58504,46.723148,-100.746708,ND015,Private,UM,Sr. Thomas Welder,4,www.umary.edu,2444,2249

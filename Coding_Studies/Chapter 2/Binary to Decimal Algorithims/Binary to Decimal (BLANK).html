@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Base 2 to Base 10 Calculator</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px dotted gray;
+			text-align: center;
+			background-color: rgb(999,999,999);
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+		}
+	</style>
+	<script>
+		var output = "";
+		
+		// STUDENT TASK: WRITE A DESCRIPTIVE COMMENT FOR THIS FUNCTION		
+		function binaryToDecimal(binaryNumber){
+			var binaryList = binaryNumber.split("");
+			binaryList.reverse();
+			var decimalAnswer = 0;
+			for (var i = 0; i < binaryList.length; i++)
+			{
+			if ("idBinNum") 
+				var num = parseFloat(binaryList[i]);
+				var value = 2**i * num;
+				decimalAnswer += value;
+			}
+			return decimalAnswer;
+		}
+	
+		/** 
+		 * display(item) displays a message on the website
+		 * by putting text between <div id='idDiv'> and </div>
+		 *
+		 * Parameters: a string
+		 * Return value: none
+		 */	
+		function display(item1,item2){
+
+			output = item1; 
+			
+			output += ' in binary is ';
+			
+			output += item2;
+			
+			output += ' in decimal.'
+			
+			document.getElementById('idDiv').innerHTML=output;
+		}
+		
+		/** 
+		 * convert() does the following: 
+		 *      get a value from the textbox
+		 *      
+		 * 		call the binaryToDecimal function
+		 *      and storesit in the variable decimalNumber
+		 * 
+		 *      call the display function 
+		 *
+		 * Parameters: none
+		 * Return value: none
+		 */			
+		function convert(){
+			var binaryNumber = document.getElementById("idBinNum").value;
+			
+			var decimalNumber = binaryToDecimal(binaryNumber);
+			
+			display(binaryNumber, decimalNumber);
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>Base 2 to Base 10 Calculator</h1>
+	<img src="binary.png">
+	<br>
+	<input type="text" id="idBinNum" placeholder="Binary Number">
+	<br>
+	<input type="button" value="Convert to Decimal" onClick="convert()">
+	<br>
+	<br>
+	<div id="idDiv"></div>
+	<br>
+	<br>
+	
+	
+</body>
+</html>

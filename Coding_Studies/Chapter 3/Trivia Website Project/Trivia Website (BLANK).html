@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hexadecimal Trivia Website</title>
+	<style>
+			body{
+					padding: 10px 0;
+					border: 5px solid blue;
+					text-align: center;
+					background-image: url("Viking emblem.png");
+					font-family: "Trebuchet MS", Helvetica, sans-serif;
+			}
+	</style>
+
+	<script>
+
+		// Global variables (available throughout the entire program):
+		
+		var questionNumber = 0;
+		// 		TO DO: Create a variable "questionNumber", initialize it with an appropriate value
+		//             It will store which question number is currently selected
+		var instructionsVisible = true;
+		// 		TO DO: Create a boolean variable named "instructionsVisible", initialize it with an appropriate value
+		var instructions = "Convert the following Hexadecimal number to decimal. Do not include padding";
+		// 		TO DO: Create a variable named "instructions", initialize it with a string containing the game's instructions
+		var imageArray = ["coconut.jpg","kiwi.jfif","pineapple.jfif","Banana.jfif","Strawberry.jfif","Apples.jfif"]
+		//		TO DO: Create an array of strings named "imageArray", initialize it with 6 short file names
+		//		Example: 'apples.jpg' could be an element in your array if you had an image named apples.jpg
+		var questionArray = ["A","B","C","D","E","19"]
+		//		TO DO: Create an array of strings named "questionArray", initialize it with 6 short questions
+		//		Example: "FF" could be an element in your array if you want the player to convert "FF" from hexadecimal to binary
+		var answerArray = ["1010","1011","1100","1101","1110","11001"]
+		//		TO DO: Create an array of strings named "answerArray", initialize it with 6 answers to the questions above
+		//		Example: "1111 1111" would be an element in your array corresponding to the position of "FF" in "questionArray"
+		//
+		
+		
+		// Code citation:
+		// 		Author: Mozilla Foundation
+		//		Accessed: 10/16/2017
+		//		URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+		// 		Purpose: Generate a random integer, n, such that min <= n <= max
+		function randomInt(min, max) {
+				var min = Math.ceil(min);
+				var max = Math.floor(max);
+				return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+			}
+			//	Get the code for this inside of this function from the link above.
+			//  MAKE SURE TO FIND THE VERSION THAT INCLUDES BOTH MIN AND MAX!!!
+			//
+			//	When you use an external source, you MUST give a full citation of this work (see above)	
+			//
+		
+		
+		/* function formatImage takes the image array and a random number and reurns a specific image in the array
+		parameters: imageArray and questionNumber
+		return: a specific image
+		*/
+		function formatImage(inputArray, index){
+			
+			var fileName = inputArray[index];
+			
+			var output = "<img src='";
+			output+= fileName;
+			output+="'width = 500 height = 700>";
+			
+			return output
+			
+			// Part 1:
+			// 		Grab the item at position 'index' from the array 'inputArray', store it as the variable fileName
+			
+			// Part 2:
+			// 		Concatenate (link) a string together that includes HTML code for an image tag
+			//		The src for the image should be used from the variable fileName
+			//		Example: A fileName of 'flowers.jpg' should produce a return value of "<img src='flowers.jpg'>"
+
+			// Part 3:
+			//		Return the variable output
+		}
+
+		
+		/* function formatImage takes the question array and a random number and reurns a specific question in the array
+		parameters: questionArray and questionNumber
+		return: a specific question
+		*/
+		function formatQuestion(inputArray, index){
+			
+			var question = inputArray[index];
+			
+			var output = "What is "
+			output += question
+			output += " in binary?"
+			
+			return output
+			
+			
+			// 		Grab the item at position 'index' from the array 'inputArray', store it as the variable question
+			
+			// Part 2:
+			// 		Concatenate (link) a string together that includes the contents of 'question'
+			//		Example: If question = "F", then the message might say "What is the hexadecimal number F in binary?"
+
+			// Part 3:
+			//		Return the value of the output string
+		}
+		
+		
+		/* function displayRandomQuestion is used to decide a question in the question array an display it.
+		parameters: length of the arrays, format image, format questions, 
+		return: a specific image
+		*/
+		function displayRandomQuestion(){
+		
+		
+			// Code citation:
+			// 		Author: Mozilla Foundation
+			//		Accessed: 10/16/2017
+			//		URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+			// 		Purpose: Generate a random integer, n, such that min <= n <= max
+			
+			
+			var arrayLength = answerArray.length;
+			questionNumber = randomInt(0, arrayLength - 1)
+
+			console.log(questionNumber)
+				
+			var picture = formatImage(imageArray, questionNumber);	
+
+			var question = formatQuestion(questionArray, questionNumber);
+			
+			divIdPic.innerHTML=picture;
+			
+			divIdQuestion.innerHTML=question;
+			
+			divIdAnswer.innerHTML="";
+							
+			// Part 1:
+			// 		Find the length of the answer array, store it as the variable 'arrayLength'
+			// 		Generate a random number between 0 and arrayLength - 1, store it as the variable 'questionNumber'
+			
+			// Part 2:
+			// 		Call the function formatImage, feed it the variables imageArray and questionNumber as parameters, store the return value as the variable 'picture'
+			//		Call the function formatQuestion, feed it the variables questionArray and questionNumber as parameters, store the return value as the variable 'question'
+			
+			// Part 3:
+			//		Insert the contents of the variable 'picture' in the innerHTML of the <div id="divIdPic"></div> tag
+			//		Insert the contents of the variable 'question' in the innerHTML of the <div id="divIdQuestion"></div> tag
+			//		Insert an empty string in the innerHTML of the <div id="divIdAnswer"></div> tag		
+		}
+		
+		
+		/* function checkAnswer is used to chick if the answer entered by the user is correct
+		parameters: questionArray, the submitted answer, the correst answer
+		return: A response of if the submitted answer is correct or incorrect
+		*/
+		function checkAnswer(){
+			
+			var question = questionArray[questionNumber]
+			
+			var submittedAnswer = txtIdAnswer.value
+			
+			var correctAnswer = answerArray[questionNumber];
+			
+			var output = "";
+			
+			
+			if(submittedAnswer == correctAnswer) {
+				output = "You are correct! "
+				output += question
+				output += " in hex is "
+				output += correctAnswer
+				
+			}
+			
+			else{
+				output = "You are incorrect! "
+				output += question
+				output += " in hex isn't "
+				output += submittedAnswer
+				output += " in binary!"
+			}
+			
+			
+			document.getElementById('divIdAnswer').innerHTML=output;
+			
+			
+			
+			
+			// Part 1:
+			// 		Read the contents of the textbox, store its value in the variable 'submittedAnswer'
+			// 		Grab the item at position 'questionNumber' from 'answerArray', store the answer as the variable 'correctAnswer'
+			
+			// Part 2: 
+			// 		Check if 'submittedAnswer' is the same as 'correctAnswer'.  If so, concatenate (link) a string congratulating the player, store as the variable 'output'
+			// 		Otherwise (else), concatenate (link) a string telling the player he/she is wrong, store as the variable 'output'
+			// 			Note: the messages should include both the question and the answer:
+			// 			Ex: "You are correct! F in hex is 1111 in binary." or "You are wrong. F in hex is not 10000 in binary."
+
+			// Part 3: 
+			// 		Insert the contents of the variable 'output' in the innerHTML of the <div id='divIdAnswer></div> tag
+		}
+
+		
+		/* function toggleInstructions is used to make the instructions of the trivia viivble or invisible
+		parameters: if instructions are visible currently or invisible, the div tag where the instructions are
+		return: The instruction if invisible before, or nothing if instrutions were visible before
+		*/
+		function toggleInstructions(){
+				if (instructionsVisible == true){
+					document.getElementById('divIdInstructions').innerHTML="";
+					instructionsVisible = false
+				}
+				else {
+					document.getElementById('divIdInstructions').innerHTML=instructions;
+					instructionsVisible = true
+				}
+			// Check if the variable 'instructionsVisible' is false.  If so, set 'instructionsVisible' to true
+			//		Insert the contents of the variable 'instructions' in the innerHTML of the <div id="divIdInstructions"></div> tag
+			// Otherwise (else), set 'instructionsVisible' to false and insert an empty string in the innerHTML of the <div id="divIdInstructions"></div> tag
+			
+		
+	}
+	</script>
+</head>
+
+<!--TO DO: Add an onLoad="" event handler to the body tag below, inserting a function name inside the "" (including parenthesis!)
+		   When the page loads, call the function that generates a random question number-->
+
+<body OnLoad="displayRandomQuestion()">
+
+	<!--TO DO: Add a descriptive header using <h1> tags-->
+	
+	<h1><mark> Test Your Computer Knoledge </mark></h1>
+
+
+	<div id="divIdPic"></div>
+	<div id="divIdQuestion" style="background-color:yellow"></div>
+	<input type="text" id="txtIdAnswer" placeholder="Type your answer here">
+
+	<!--TO DO: Add an onClick="" event handler to the input tag below, inserting a function name inside the "" (including parenthesis!)
+			   Decide which function should be called when you click this button-->
+	<input type="button" value="Check Answer" onClick="checkAnswer()">
+
+	<!--TO DO: Add an onClick="" event handler to the input tag below, inserting a function name inside the "" (including parenthesis!)
+			   Decide which function should be called when you click this button-->
+	<input type="button" value="Next Question" onClick="displayRandomQuestion()">
+
+	<!--TO DO: Add an onClick="" event handler to the input tag below, inserting a function name inside the "" (including parenthesis!)
+			   Decide which function should be called when you click this button-->
+	<input type="button" value="Toggle Instructions" onClick="toggleInstructions()">
+
+	<div id="divIdAnswer" style="background-color:yellow"></div>
+	<mark><div id="divIdInstructions" style="background-color:yellow"></div></mark>
+
+	<!--Feel free to add extra text or <br> line breaks to personalize the design of your page (not required) -->
+</body>
+
+</html>

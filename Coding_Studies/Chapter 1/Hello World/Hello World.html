@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+		<title>
+				My First Webpage
+		</title>
+		
+		<style>
+				body {
+						background-color: yellow;
+				}
+				h1 {
+						font-size: 300%;
+						text-align: center;
+						color: green;
+				}
+				h2 {
+						font-size: 150%;
+						text-align: center;
+						font-style: italic;
+						color: gray;
+				}
+				h3  {	
+						font-size: 200%;
+						text-align: center;
+						font-style: bold;
+						color: blue;
+				}
+				div {
+						text-align: center;
+				}
+		</style>
+		
+		<script>
+				/**
+				 * The function changePicture() sets the source to the image to 'fremd.jpg'
+				 */
+				function changePicture(){
+						document.getElementById('pictureId').src='fremd.jpg';
+				}
+				function changePicture2(){
+						document.getElementById('pictureId').src='vikings.jpg';
+				}
+				// Create a variable, and call it 'name'
+				var name;
+				
+				// Create a variable, and call it 'nameMessage'
+				var nameMessage;
+				
+				/**
+				 * When called, the showName() function will display a message
+				 * between the <div> tags with an Id of 'div3Id'
+				 */
+				function showName(){
+						name = document.getElementById('inputId').value;
+						nameMessage = 'Thanks for visiting, ';
+						nameMessage = nameMessage + name;
+						nameMessage = nameMessage + '.'
+						document.getElementById('div3Id').innerHTML = nameMessage;
+				}
+				
+				/**
+				 *When called, the background() function will change the
+				 *webpage background to white.
+				 *
+				 */
+				function background(){
+						document.body.style.backgroundColor = 'white';
+				}
+				function Reset(){
+						document.body.style.backgroundColor = 'yellow';
+						document.getElementById('pictureId').src='vikings.jpg';
+						
+				}
+				</script>
+</head>
+
+<body id="bodyId">
+		<h1>Hello world!</h1>
+		<h3>This is my first website!</h3>
+		<div id="div1Id">
+				<input type="button" id="button2Id" value="Change Picture to school" onClick = "changePicture()"></input>
+				<br>
+				<br>
+				<input type="button" id="button5Id" value="Change Picture to logo" onClick = "changePicture2()"></input>
+				<br>
+				<br>
+				<input type="input" id="inputId" value="Type Your Name Here"></input>
+				<input type="button" id="button3Id" value="Submit Name" onClick="showName()"></input>
+				<br>
+				<br>
+				<input type="button" id="button4Id" value="Change Background" onClick = "background()"></input>
+				<br>
+				<br>
+				<input type="button" id="button6Id" value="Reset" OnClick = "Reset()",></input>
+				<br>
+				<br>
+				<div id="div2Id">
+						<img id="pictureId" src="vikings.jpg">
+				</div>
+				<br>
+				<br>
+				<div id="div3Id"></div>
+		</div>
+</body>
+</html>

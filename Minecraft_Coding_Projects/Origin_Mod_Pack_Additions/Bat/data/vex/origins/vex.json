@@ -1,0 +1,21 @@
+{
+	"powers": [
+		"vex:scale_change",
+		"vex:passive_abilities",
+		"vex:descend",
+		"vex:vex_boost",
+		"vex:iron_sword",
+		"vex:no_fall_damage",
+		"vex:float",
+		"vex:ambient_vex_sound",
+		"vex:vex_hurt_sound",
+		"vex:illagerpassive",
+		"vex:golemaggro",
+		"vex:prevent_shield_use"
+	],
+	"icon": "minecraft:iron_sword",
+	"order": 6,
+	"impact": 2,
+	"name": "Vex",
+	"description": "A fae of pure evil, once summoned by an evoker"
+}

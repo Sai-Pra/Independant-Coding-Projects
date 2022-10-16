@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Changing Image Sources</title>
+		
+		<style>
+		</style>
+		
+		<script>
+			<!-- Create a function "changeImage()" -->
+			function changeImage() {
+				var imageArray = ["marvelcomics.jpg","dccomics.jpg","darkhorsecomics.jpg"];
+				var store = idSelectComics.value
+				if(store == "DC Comics") {
+					idPicture.src = imageArray[1];
+					}
+				else if(store == "Marvel Comics"){
+					idPicture.src = imageArray[0];
+					}
+				else{
+					idPicture.src = imageArray[2];
+					}
+			}
+					
+				// 1. Create an array that stores the 3 images contained in the folder.
+				// 2. Create a variable to store the current value of the drop-down select box.
+				// 3. Use 'if', 'else if', and 'else' statements to compare the variable to the options available in your select box.
+				// 4. For each option, change the source of idPicture using document.getElementById('idPicHero').src
+					// Ex: If Marvel Comics is chosen, change the source of idPicture to "marvelcomics.jpg"
+		</script>
+	</head>
+	<body>
+		<!-- Add an image with an id of "idPicture" and a source image of the first option in your select box (below) -->
+		<!-- i.e. If "DC Comics" is your first option below, your source should be "dccomics.jpg" -->
+		<img id="idPicture" src="marvelcomics.jpg" width="150" height="100">
+		
+		
+		
+		<select id="idSelectComics">
+			<option>DC Comics</option>
+			<option>Marvel Comics</option>
+			<option>Dark Horse Comics</option>
+		</select>
+	
+		<!-- Add code for a drop-down select box, give it an appropriate id, and fill the options with:
+			 "DC Comics" "Marvel Comics" "Dark Horse Comics" -->
+		
+		<!-- Add code for a button, give it a value of "Select", and and onClick event handler that runs
+			 the function "changeImage()" -->
+			<input type="button" value="Change Picture" onClick="changeImage()"
+			 
+	</body>
+</html>

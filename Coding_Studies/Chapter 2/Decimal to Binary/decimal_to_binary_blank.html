@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Base 10 to Base 2 Calculator</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px solid green;
+			text-align: center;
+			background-color: #77FF77;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+		}
+	</style>
+	<script>
+	
+		/** 
+		 * STUDENT TASK: ADD A DESCRIPTIVE COMMENT HERE
+		 *
+		 * Parameters: ????
+		 * Return value: ????
+		 */		
+		function decimalToBinary(decimalNumber){
+			
+			var binaryString = "";
+			var binaryArray = []; 
+
+			// TO DO 
+			while (decimalNumber > 0)
+			{
+				var remainder = decimalNumber % 2;
+				binaryString += remainder;
+				decimalNumber = Math.floor(decimalNumber/2);																															
+			}
+			
+			binaryArray = binaryString.split("");
+			binaryArray.reverse();
+			binaryString = binaryArray.join("");
+			
+			
+			return binaryString;			
+		}
+
+		/** 
+		 * STUDENT TASK: ADD A DESCRIPTIVE COMMENT HERE
+		 *
+		 * Parameters: ????
+		 * Return value: ????
+		 */		
+		function displayOutput(item1,item2){
+
+			var output = ""; 
+			
+			// TO DO 
+			output += item1 + " in dec is " + item2 + " in Binary!"
+			
+			idDiv.innerHTML=output;
+		}
+		
+		/** 
+		 * STUDENT TASK: ADD A DESCRIPTIVE COMMENT HERE
+		 *
+		 * Parameters: ????
+		 * Return value: ????
+		 */		
+		function convert(){
+			
+			var decimalNumber, binaryNumber;
+
+			// TO DO
+			
+			decimalNumber = idDecNum.value;
+			
+			var binaryNumber = decimalToBinary(decimalNumber);
+						
+			displayOutput(decimalNumber, binaryNumber);
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>Base 10 to Base 2 Calculator</h1>
+	<img src="circuit.jpg">
+	<br>
+	<input type="text" id="idDecNum" placeholder="Decimal Number">
+	<br>
+	<input type="button" value="Convert to Binary" onClick="convert()">
+	<br>
+	<br>
+	<div id="idDiv">             </div>
+	<br>
+	<br>
+	
+	
+</body>
+</html>

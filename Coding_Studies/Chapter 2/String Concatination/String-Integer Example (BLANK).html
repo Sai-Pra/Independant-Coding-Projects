@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>String & Integer Addition Example</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 50px solid green;
+			text-align: center;
+			background-color: rgb(100,100,100);
+			font-family: "Comic Sans", Gadget, sans-serif;
+		}
+	</style>
+	<script>
+	
+		/** 
+		 * stringAddition(x,y) concatenates the 
+		 * two strings passed to it as arguments
+		 *
+		 * Parameters: two strings
+		 * Return value: a string (concatenation of arguments passed to function)
+		 */
+		function stringAddition(x,y){
+			// to do 
+			return x + " " + y; 
+		}
+	
+		/** 
+		 * numberAddition(x,y) first parses its arguments as 
+		 * numbers, then returns the sum of these numbers
+		 *
+		 * Parameters: two strings
+		 * Return value: a number (the sum of the arguments, parsed as numbers)
+		 */	
+		function numberAddition(x,y){
+			// to do
+			return parseFloat(x) + parseFloat(y);
+		}
+
+		/** 
+		 * madlibs(x,y) concatenates  
+		 * a long output string using the 
+		 * two strings passed to it as arguments
+		 *
+		 * Parameters: two strings
+		 * Return value: a string (a long message formed with concatenation)
+		 */		
+		function madlibs(x,y){
+			var output = "Once upon a time, ";
+			output = output + "There once was a programmer named ";
+			output += "<span style='color:blue;'>"
+			output += x;
+			output = output + "</span>. <br> <br>";
+			output = output + " The programmer always cooked ";
+			output += y;
+			output += " for lunch.";
+			output = output + "<br> <br>";
+			output += "The End.";
+			return output
+		}
+		
+		/** 
+		 * display(item) displays a message on the website
+		 * by putting text between <div id='idDiv'> and </div>
+		 *
+		 * Parameters: a string
+		 * Return value: none
+		 */		
+		function display(item){
+			document.getElementById('idDiv').innerHTML=item;
+		}
+
+		/** 
+		 * masterFunction() stores the values of the two <input type="text"
+		 * textboxes in the webpage and the <select> dropdown menu as variables
+		 * then uses these values to call the appropriate function(s) from above 
+		 *
+		 * Parameters: none
+		 * Return value: none
+		 */		
+		function masterFunction(){
+			var textbox1 = document.getElementById('idBox1').value;
+			var textbox2 = document.getElementById('idBox2').value;
+			var dropdown = document.getElementById('idDropdown').value;
+			var result;
+			
+			if (dropdown=="concatenate (string addition)"){
+				result = stringAddition(textbox1, textbox2);
+			}
+			else if (dropdown=="add (floating point addition)"){
+				result = numberAddition(textbox1, textbox2);
+			}
+			else if (dropdown=="madlibs"){
+				result = madlibs(textbox1, textbox2);
+			}
+			
+			display(result);			
+		}
+	</script>
+</head>
+<body>
+	<h1>String & Integer Addition Example</h1>
+	<img src="coding.jpg">
+	<br>
+	<input type="text" id="idBox1" placeholder="Input #1">
+	<br>
+	<input type="text" id="idBox2" placeholder="Input #2">
+	<br>
+	
+		<select id="idDropdown">
+			<option>concatenate (string addition)</option>
+			<option>add (floating point addition)</option>
+			<option>madlibs</option>
+		</select>
+	<br>
+	<input type="button" value="Submit" onClick="masterFunction()">
+	<br>
+	<div id="idDiv">Result will display here.</div>		
+</body>
+</html>

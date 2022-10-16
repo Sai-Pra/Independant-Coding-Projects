@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array Example</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px double orange;
+			text-align: center;
+			background-color: #33FFFF;
+			font-family: "Courier New", Courier, monospace;
+		}
+	</style>
+	<script>
+	
+		// this array contains a shopping list of items
+		var shoppingList = ["milk","eggs","cereal","orange juice","bread","blueberries"];
+		
+		/** 
+		 * format(inputArray) loops over an array passed through to it as an argument
+		 * and formats its contents as an html message
+		 *
+		 * Parameters: an array
+		 * Return value: a string (an output string formatted using html tags)
+		 */		
+		function format(inputArray){
+			// the length of the array
+			var arrayLength = shoppingList.length
+			
+			// the beginning of the output string
+			var output = "<h2>Your shopping list contains the following items:</h2>";
+			output += "<br>"
+			
+			// for each item in the array, concatenate
+			// the item and a line break <br>
+			// TO DO 
+			
+			for (var i = 0; i < arrayLength; i++)
+			{
+				output += shoppingList[i] + "<br>"
+			}
+			// add a final message to the output string
+			output = output + "<br>" + "<h3 style='color:red'> Don't forget to bring your coupons!</h3>";
+
+			return output
+		}
+
+		/** 
+		 * display(item) displays a message on the website
+		 * by putting text between <div id='idMyDiv'> and </div>
+		 *
+		 * Parameters: a string
+		 * Return value: none
+		 */		
+		function display(item){
+			document.getElementById('idMyDiv').innerHTML=item;
+		}
+		
+		function displayN(index){
+			var nItem = shoppingList[index]
+			display(nItem);
+		}
+		
+		function addItem(item){
+			shoppingList.push(item)
+		}
+		/** 
+		 * STUDENT TASK: WRITE A DESCRIPTIVE COMMENT FOR THIS FUNCTION.
+		 * 
+		 */		
+		function masterFunction(){
+			var textbox = document.getElementById('idBox').value;
+			var dropdown = document.getElementById('idDropdown').value;
+			
+			if (dropdown=="display array"){
+				// TO DO 
+				display(shoppingList);
+			}
+			else if (dropdown=="display nth item"){
+				// TO DO 
+				var number = parseFloat(textbox)
+				displayN(number)
+			}
+			else if (dropdown=="reverse array"){
+				// TO DO
+				shoppingList.reverse();
+				display(shoppingList);
+			}
+			else if (dropdown=="add item"){
+				// TO DO 
+				addItem(textbox)
+				display(shoppingList)
+			}
+			else if (dropdown=="format array"){
+				// TO DO 
+				var text = format(shoppingList)
+				display(text)
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Array Example</h1>
+	<img src="breakfast.jpg">
+	<br>
+	<input type="text" id="idBox" placeholder="type here">
+	<br>
+		<select id="idDropdown">
+			<option>display array</option>
+			<option>display nth item</option>
+			<option>reverse array</option>			
+			<option>add item</option>
+			<option>format array</option>
+			
+		</select>
+	<br>
+	<input type="button" value="Submit" onClick="masterFunction()">
+	<br>
+	<div id="idMyDiv"></div>		
+</body>
+</html>

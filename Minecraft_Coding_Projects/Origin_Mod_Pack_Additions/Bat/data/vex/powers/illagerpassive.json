@@ -1,0 +1,42 @@
+{
+    "type": "origins:action_over_time",
+    "name": "Illager Alliance",
+    "description": "All illager mobs are passive to you",
+    "hidden": false,
+    "interval": 100,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @s"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @e[type=minecraft:evoker, distance=..40]"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @e[type=minecraft:illusioner, distance=..40]"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @e[type=minecraft:pillager, distance=..40]"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @e[type=minecraft:vindicator, distance=..40]"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "team join pillagersx @e[type=minecraft:ravager, distance=..40]"
+            }
+        ]
+    }
+}

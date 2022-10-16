@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "order": 0,
+  "enabled": true,
+  "origins": [
+    "origins:phantom"
+  ],
+  "allow_random": true,
+  "random_unchoosable": false
+}

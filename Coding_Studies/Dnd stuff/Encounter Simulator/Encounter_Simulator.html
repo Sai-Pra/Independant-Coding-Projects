@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<!-- Enter an appropriate title -->
+		<title>Intro Text!</title>
+		<style>
+			body
+			{
+				text-align: center;
+				background-color: orange;
+				color: #000000;
+				border: 80px dotted black;
+			}
+			
+
+		</style>
+		<script>
+			var theDisplay = "<mark>Set the display. <br> Please enter only text</mark>";
+           
+		   /*Description: Sets a new display
+			*
+			*Parameters: A display in the text box
+			*
+			*Returns: Nothing
+			*
+		    */
+			function newDisplay()
+			{
+				theDisplay = "<mark>" + idDisplayText.value + "</mark>"
+				document.getElementById('idDivOutput').innerHTML=theDisplay;
+			}
+		
+		</script>
+	</head>	
+	<body>
+	
+	<h1>Intro Text!</h1>
+	<br>
+	<br>
+	<input type="text" placeholder="Type display text" id="idDisplayText">
+	<input type="button" value="Set Display" onClick="newDisplay()">
+	<br>
+	<br>
+	<div id="idDivOutput"></div>
+	
+	
+	</body>
+		
+		

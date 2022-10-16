@@ -1,0 +1,14 @@
+{
+  "type": "origins:invulnerability",
+  "damage_condition": {
+	"type": "origins:or",
+	"conditions": [
+	  {
+		"type": "origins:name",
+		"name": "fall"
+	  }
+	]
+  },
+	"name": "Light as a feather",
+	"description": "You receive no fall damage"
+}

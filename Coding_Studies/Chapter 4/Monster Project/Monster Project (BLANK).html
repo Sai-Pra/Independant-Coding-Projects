@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<!-- add a title-->
+	<title>Hero VS Villain</title>
+	<style>
+		body {
+			padding: 10px 0;
+			border: 5px dotted blue;
+			text-align: center;
+			background-image: url("Sai.jpg");
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+		}
+	</style>
+	<!-- add CSS between <style> tags-->	
+	<script>
+	
+			var defeatedMonsters = 0;
+			var heroHealth = 100;
+			var villainHealth = 100;
+			var heroNameArray = ["Batman","Superman","Flash","Wonder Women","Kermit","Sai"]
+			var heroPicArray = ["Batman.jpg","Superman.jpg","Flash.jpg","Wonder Women.jpg","Kermit.jpg","Sai.jpg"]
+			var villainNameArray = ["Joker", "Lex Luther", "Dr. Wells", "Cheetah", "Constantine", "The Vicious Puppy"]
+			var villainPicArray = ["Joker.jpg", "Lex Luthor.jpeg", "Dr. Wells.jpeg", "Cheetah.jpeg", "Constantine.jpg", "The vicious puppy.jfif"]
+			var heroIndex = 0;
+			var villainIndex = 0;
+			
+			
+		
+		// Code citation:
+		// 		Author: Mozilla Foundation
+		//		Accessed: 10/16/2017
+		//		URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+		// 		Purpose: Generate a random integer, n, such that min <= n <= max
+		function randomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) ) + min;
+		}
+		
+		/*
+		*Description: This function takes in what hero is selected, and changes the pictures and heroIndex(The thing that tell the current superhero) to the approprate person
+		*
+		*Parameters: What is entered into the drop down box
+		*
+		*Returns: The heros picture on screen, and the current hero to the computer
+		*/
+		
+		function changeHero(){
+			var store = idSelect.value
+			if(store == "Batman") {
+					idPicHero.src = heroPicArray[0];
+					heroIndex = 0
+					}
+				else if(store == "Superman"){
+					idPicHero.src = heroPicArray[1];
+					heroIndex = 1
+					}
+				else if(store == "Flash"){
+					idPicHero.src = heroPicArray[2];
+					heroIndex = 2
+					}
+				else if(store == "Wonder Women"){
+					idPicHero.src = heroPicArray[3];
+					heroIndex = 3
+					}
+				else if(store == "Kermit"){
+					idPicHero.src = heroPicArray[4];
+					heroIndex = 4
+					}
+				else{
+					idPicHero.src = heroPicArray[5];
+					heroIndex = 5
+					}
+		}
+		
+		/*
+		*Description: Takes a random damage dealth by the villian and the heros name, and returns a string with a descriptive message about heros damage taken in a single round of battle
+		*
+		*Parameters: A random Integer of the villians damage and the heros name that is currently fighting
+		*
+		*Returns: A stinger with the heros name and damage taken
+		*/
+		function heroMessage(monsterDamageLevel){
+			
+			var output = " The Hero, "
+			output += heroNameArray[heroIndex]
+			output += " ,has been dealt "
+			output += monsterDamageLevel
+			output += " damage."
+			
+			return output
+
+		}
+
+		/*
+		*Description: Takes a random damage dealt by the hero and the villians name, and returns a string with a descriptive message about villians damage taken in a single round of battle
+		*
+		*Parameters: A random Integer of the heros damage and the villians name that is currently fighting
+		*
+		*Returns: A stinger with the villians name and damage taken
+		*/
+		function monsterMessage(heroDamageLevel){
+		
+			var output = "The villain, "
+			output += villainNameArray[villainIndex]
+			output += ", has been dealt "
+			output += heroDamageLevel
+			output += " damage."
+
+			
+			return output
+		}
+
+		/*
+		*Description: After a villian is defeated, this will set a new one
+		*
+		*Parameters: The amount of villians and their picture and names, and the ids to the monsters health and the button to fight
+		*
+		*Returns: A new random monster picture, name, and health
+		*/
+		function setNewMonster(){
+			var arrayLength = 0;
+			arrayLength = villainNameArray.length;
+			
+			villainIndex = randomInt(0, arrayLength - 1);
+			idPicMonster.src = villainPicArray[villainIndex];
+			villainHealth = 100
+			idDivMonsterHealth.innerHTML= "<mark>Villain Health: " + villainHealth + "</mark>"
+			idButtonContainer.innerHTML = "<input type='button' value='Fight!' onClick='play()'>"
+			}
+	
+		
+
+		/*
+		*Description: If you win or lose the game, this will allow you to reset
+		*
+		*Parameters: The set new monster function and access to the global variable heros health and monsters health and defeated monsters, and the id to the heros health
+		*
+		*Returns: The full health of the monster and hero, the amount of monsters defeated set to 0
+		*/
+		function resetEntireGame(){
+			heroHealth = 100
+			defeatedMonsters = 0;
+			setNewMonster()
+			idDivHeroHealth.innerHTML= "<mark>Hero Health: " + heroHealth + "</mark>"
+		}
+		
+		/*
+		*Description: For every scenario possible in the battle, this win display the correct results
+		*
+		*Parameters: The heros health, the monsters health, and the defeated monster count, and all the functions above, and all the ids
+		*
+		*Returns: If the hero wins, it tells you win and show a button to reset the game. If the hero loses, it shows you lose and a button to reset the game appears. If there is a monster down, but not enough, it will set a new monster. If no one is down, the fight will continue. 
+		*/
+		function play(){
+			var heroDamageLevel = randomInt(10,17)
+			var monsterDamageLevel = randomInt(1,4)
+			
+			if(heroHealth > 0 && villainHealth > 0){
+				var monsterOutput = monsterMessage(heroDamageLevel)
+				var heroOutput = heroMessage(monsterDamageLevel)
+				idDivMessage.innerHTML="<mark>" + monsterOutput+heroOutput + "</mark>"
+				
+				villainHealth = villainHealth - heroDamageLevel;
+				if(villainHealth < 0)
+				{
+					villainHealth = 0
+				}
+				idDivMonsterHealth.innerHTML= "<mark>Villain Health: " + villainHealth + "</mark>"
+				idDivDefeatedMonsters.innerHTML = "<mark>Defeated Monsters: " + defeatedMonsters + "</mark>"
+				
+				heroHealth = heroHealth - monsterDamageLevel;
+				if(heroHealth < 0)
+				{
+					heroHealth = 0
+				}
+				idDivHeroHealth.innerHTML = "<mark>Heros Health: " + heroHealth + "</mark>"
+				idDivDefeatedMonsters.innerHTML = "<mark>Defeated Monsters: " + defeatedMonsters + "</mark>"
+			}
+			
+			
+			if(villainHealth <= 0 && defeatedMonsters < 5 && heroHealth > 0)
+			{
+				idButtonContainer.innerHTML = "<input type='button' value='New Monster' onClick='setNewMonster()'>";
+				defeatedMonsters += 1;
+				idDivDefeatedMonsters.innerHTML = "<mark>Defeated Monsters: " + defeatedMonsters + "</mark>"
+			}
+			else if(heroHealth < 1)
+			{
+				idButtonContainer.innerHTML = "<input type='button' value='Reset Game' onClick='resetEntireGame()'>"
+				idDivDefeatedMonsters.innerHTML = "<mark>Defeated Monsters: " + defeatedMonsters + "</mark>"
+				alert("You Lost and Died :)")
+			}
+			if (defeatedMonsters == 5 && heroHealth > 0)
+			{
+				alert("YOU WIN")
+				idDivDefeatedMonsters.innerHTML = "<mark>Defeated Monsters: " + defeatedMonsters + "</mark>"
+				idButtonContainer.innerHTML = "<input type='button' value='Reset Game' onClick='resetEntireGame()'>"
+				
+			}
+		}	</script>
+</head>
+
+<!-- add an event handler to the <body> tag to set a random monster when the page loads -->
+<body OnLoad="setNewMonster()">
+
+<body>
+
+	<!-- add a header-->
+	<h1><mark>HERO VS VILLIAN</mark></h1>
+	<h2><mark>The Ultimate Showdown</mark></h2>
+	<!-- add an image of the first hero with an id of "idPicHero" -->
+	<img id="idPicHero" src="Batman.jpg" width="500" height="700">
+	
+	<!-- add an image of the first monster with an id of "idPicMonster" -->
+	<img id="idPicMonster" src="Joker.jpg" width="500" height="700">
+
+	<!-- add <div> elements with appropriate ids for the hero health, monster health, and number of monsters defeated-->
+	<div id="idDivHeroHealth"><mark>Hero health: 100</mark></div>
+	<br>
+	<div id="idDivMonsterHealth"><mark>Villain health: 100</mark></div>
+	<br>
+	<div id="idDivDefeatedMonsters"><mark>Defeated Monsters: 0</mark></div>
+	<br>
+	<div id="idDivMessage"></div>
+	<br>
+	<!-- add a <div> element with an id of "idButtonContainer" and put code for a 'Fight!' button between the <div></div> tags-->
+	<div id = "idButtonContainer"><input type="button" value="Fight" onClick="play()"></div>
+
+	<!-- add a <div> element with an appropriate id for the descriptive messages that appear as you play the game-->
+	
+	<br> 
+	<mark>Change your avatar:<mark>
+	<select id="idSelect">
+		<option>Batman</option>
+		<option>Superman</option>
+		<option>Flash</option>
+		<option>Wonder Women</option>
+		<option>Kermit</option>
+		<option>Sai</option>
+	</select>
+	<!-- add an event handler below that calls the correct function to update the avatar-->
+	<input type="button" value="Change Avatar" onClick="changeHero()">
+	
+</body>
+
+</html>

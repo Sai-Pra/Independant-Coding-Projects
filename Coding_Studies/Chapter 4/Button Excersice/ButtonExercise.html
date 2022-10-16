@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		body {
+			text-align: center;
+		}
+	</style>
+	<script>
+		<!-- Create three separate functions named changeRed(), changeBlue(), changeGreen() -->
+		
+		// changeRed()
+		function changeRed()
+		{
+			 document.body.style.backgroundColor = "red"
+			 var buttonCode = "<input type='button' value='What about blue?' onClick='changeBlue()'>"
+			 idButtonContainer.innerHTML = buttonCode;
+		}
+			// 1. Change the background color to red.
+			// 2. Set innerHTML of <div> to be the code for a new button with a value of "What about blue?"
+			//	  and an onClick event handler that calls the function "changeBlue()"
+			
+		// changeBlue()
+		function changeBlue()
+		{
+			 document.body.style.backgroundColor = "blue"
+			 buttonCode = "<input type='button' value='Now try green' onClick='changeGreen()'>"
+			 idButtonContainer.innerHTML = buttonCode;
+		}
+			// 1. Change the background color to blue.
+			// 2. Set innerHTML of <div> to be the code for a new button with a value of "Switch to green!"
+			//	  and an onClick event handler that calls the function "changeGreen()"
+		
+		// changeGreen()
+		function changeGreen()
+		{
+			 document.body.style.backgroundColor = "green"
+			 var buttonCode = "<input type='button' value='Do red' onClick='changeRed()'>"
+			 idButtonContainer.innerHTML = buttonCode;
+		}
+			// 1. Change the background color to green.
+			// 2. Set innerHTML of <div> to be the code for a new button with a value of "Now try red!"
+			//	  and an onClick event handler that calls the function "changeRed()"
+		
+	</script>
+</head>
+<body>
+	<div id="idButtonContainer"><input type="button" value="Now to red!" onClick="changeRed()"></div>
+	
+	<!-- Create a <div> with an id of "idButtonContainer".
+		 In the innerHTML of the <div>, insert code for a button with a value of "Now try red!" and 
+		 an onClick event handler that runs the function "changeRed()"-->
+</body>
+</html>
