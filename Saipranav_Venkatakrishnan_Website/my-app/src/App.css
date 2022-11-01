@@ -1,13 +1,25 @@
 .App {
   text-align: center;
+  background-color: #0d173b;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  background-color: #0d173b;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+.Phoenix {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  margin-left: 300px;
+  margin-right: 70px;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -35,4 +47,36 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.Personal-Information {
+  text-align: left;
+  background-color: #0d173b;
+  color: azure;
+  font-size: 200%;
+  padding-top: 200px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
+
+/* .Info-Text {
+  height: 40vmin;
+  pointer-events: none;
+}
+(
+@media (prefers-reduced-motion: no-preference) {
+  .Info-Text {
+    animation: .5s linear 1s infinite alternate slidein;
+  } 
+}
+
+@keyframes Info-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
