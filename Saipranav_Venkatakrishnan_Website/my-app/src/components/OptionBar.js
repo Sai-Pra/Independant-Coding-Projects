@@ -1,6 +1,10 @@
 import * as React from 'react'
 import phoenix from '../Phoenix.jpg'
 import '../App.css';
+import App from '../App'
+import Home from '../pages/Home'
+import About from '../pages/About';
+import Blogs from '../pages/Blog';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -12,31 +16,57 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Route, useNavigate, Link, Routes } from "react-router-dom";
+import * as ReactDOM from 'react-dom/client';
 
 
 
 // List of Pages I want and Settings Options
-
 const pages = ['Home', 'About', 'Blog'];
 const settings = ['Contact Me', 'Appearance'];
 
-function ResponsiveAppBar() {
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  // const navigate = useNavigate();
-  // const redirectToAboutPage = () => {
-  //   //Redirect to the About page
-  //   navigate("/About");
-  // };
-  // const redirectToHomePage = () => {
-  //   //Redirect to the Home page
-  //   navigate("/About");
-  // };
-  // function Home() {
-  //   return <h2>Home Page Content</h2>;
-  // }
-  // function About() {
-  //   return <h2>Python Page Content</h2>;
-  // }
+var rend =     
+<>
+  <div id='theRoot'>
+    
+    <Home/>
+  </div>
+</>
+
+function setAbout(){
+  rend =
+  <>
+  <div id='theRoot'>
+    
+    <About/>
+  </div>
+  </>
+  root.render(rend);
+}
+
+function setHome(){
+  rend = 
+  <>
+  <div id='theRoot'>
+    
+    <Home/>
+  </div>
+  </>
+  root.render(rend);
+}
+
+function setBlog(){
+  rend = 
+  <>
+  <div id='theRoot'>
+    <Blogs/>
+  </div>
+</>
+  root.render(rend);
+}
+
+function ResponsiveAppBar() {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -50,7 +80,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-
+    <div style={{
+      background: 'black'
+    }}>
     <table>
       <tr>
       <Container maxWidth="x1">
@@ -92,13 +124,13 @@ function ResponsiveAppBar() {
             </Box>
           </td>
 
-            {/* Provides the Buttins with the ability to adapt based the amoutn of buttons provided*/}
+            {/* Provides the Buttons with the ability to adapt based the amount of buttons provided*/}
 
           <td>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Button
                   key={pages[0]}
-                  // onClick={redirectToAboutPage}
+                  onClick={setHome}
                   sx={{ my: 2, color: 'white', display: 'block'
                 }}
                 >
@@ -106,7 +138,7 @@ function ResponsiveAppBar() {
                 </Button>
                 <Button
                   key={pages[1]}
-                  // onClick={redirectToHomePage}
+                  onClick={setAbout}
                   sx={{ my: 2, color: 'white', display: 'block'
                 }}
                 >
@@ -114,16 +146,12 @@ function ResponsiveAppBar() {
                 </Button>
                 <Button
                   key={pages[2]}
-                  // onClick={redirectToAboutPage}
+                  onClick={setBlog}
                   sx={{ my: 2, color: 'white', display: 'block'
                 }}
                 >
                   {pages[2]}
                 </Button>
-                {/* <Routes>
-                  <Route path="/About" element={<About />} />
-                  <Route path="/About" element={<Home />} />
-                </Routes> */}
             </Box>
           </td>
 
@@ -166,6 +194,7 @@ function ResponsiveAppBar() {
       </Container>
       </tr>
     </table>
+    </div>
   );
 }
 

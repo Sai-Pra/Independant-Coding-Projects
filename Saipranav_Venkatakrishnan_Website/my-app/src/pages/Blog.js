@@ -1,10 +1,10 @@
 //import logo from './logo.svg';
 import * as React from 'react';
-import './App.css';
-import Logo from './components/Logo.js';
-import Introduction from './components/Introduction.js';
-import BasicCard from './components/Card.js';
-import ResponsiveAppBar from './components/OptionBar';
+import '../App.css';
+import Logo from '../components/Logo.js';
+import Introduction from '../components/Introduction.js';
+import BasicCard from '../components/Card.js';
+import ResponsiveAppBar from '../components/OptionBar';
 
 function Blog() {
     return (
@@ -21,9 +21,7 @@ function Blog() {
           <br>
           </br> 
         </div>  
-          <div align='center'>
-            <ResponsiveAppBar />
-          </div>
+        <ResponsiveAppBar/>
         <Introduction />
         <BasicCard />
       </div>
