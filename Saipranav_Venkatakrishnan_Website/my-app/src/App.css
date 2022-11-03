@@ -13,10 +13,17 @@
   width: 250px;
   height: 250px;
   border-radius: 100%;
-  margin-top: 200px;
-  margin-bottom: 50px;
+  margin-top: 20px;
   margin-left: 300px;
   margin-right: 70px;
+  margin-bottom: 100px;
+}
+
+.Moderate-spacing{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -54,7 +61,7 @@
   background-color: #0d173b;
   color: azure;
   font-size: 200%;
-  padding-top: 200px;
+  padding-top: 20px;
   padding-right: 50px;
   padding-bottom: 50px;
   padding-left: 50px;

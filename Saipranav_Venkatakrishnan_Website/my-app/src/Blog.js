@@ -6,8 +6,8 @@ import Introduction from './components/Introduction.js';
 import BasicCard from './components/Card.js';
 import ResponsiveAppBar from './components/OptionBar';
 
-function App() {
-  return (
+function Blog() {
+    return (
     <>
       <div style={{
         backgroundColor: '#0d173b'
@@ -28,7 +28,7 @@ function App() {
         <BasicCard />
       </div>
     </>
-  );
+    )
 }
 
-export default App;
+export default Blog;
