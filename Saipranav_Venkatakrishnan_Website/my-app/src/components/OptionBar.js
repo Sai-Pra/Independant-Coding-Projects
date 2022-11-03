@@ -18,7 +18,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Route, useNavigate, Link, Routes } from "react-router-dom";
 import * as ReactDOM from 'react-dom/client';
 
-
+//https://mui.com/material-ui/react-app-bar/
 
 // List of Pages I want and Settings Options
 const pages = ['Home', 'About', 'Blog'];
@@ -64,6 +64,25 @@ function setBlog(){
   </div>
 </>
   root.render(rend);
+}
+
+function choosePage(page){
+  switch (page) {
+    case 'Home':
+      setHome();
+      break;
+  
+    case 'About':
+      setAbout();
+      break;
+
+    case 'Blog':
+      setBlog();
+      break;
+
+    default:
+      break;
+  }
 }
 
 function ResponsiveAppBar() {
@@ -128,6 +147,16 @@ function ResponsiveAppBar() {
 
           <td>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {/* {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={choosePage(page)}
+                  sx={{ my: 2, color: 'white', display: 'block'
+                }}
+                >
+                  {page}
+                </Button>
+              ))} */}
                 <Button
                   key={pages[0]}
                   onClick={setHome}

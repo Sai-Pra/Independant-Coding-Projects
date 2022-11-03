@@ -20,7 +20,7 @@ function Home() {
         }}>
           <br>
           </br> 
-          <Logo />
+          {/* <Logo /> */}
           <br>
           </br> 
         </div>  

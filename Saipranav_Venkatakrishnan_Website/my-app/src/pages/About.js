@@ -27,7 +27,7 @@ function App() {
         </div>  
         <ResponsiveAppBar/>
         <Introduction />
-        <BasicCard />
+        {/* <BasicCard /> */}
       </div>
     </>
   );
