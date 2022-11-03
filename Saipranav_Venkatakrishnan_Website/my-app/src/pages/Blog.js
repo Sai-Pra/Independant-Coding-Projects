@@ -22,7 +22,7 @@ function Blog() {
           </br> 
         </div>  
         <ResponsiveAppBar/>
-        {/* <Introduction /> */}
+        <Introduction />
         <BasicCard />
       </div>
     </>

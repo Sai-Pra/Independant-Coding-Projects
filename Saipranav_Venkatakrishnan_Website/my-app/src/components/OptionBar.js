@@ -28,7 +28,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 var rend =     
 <>
-  <div id='theRoot'>
+  <div id='theRoot' className='App'>
     
     <Home/>
   </div>
@@ -37,7 +37,7 @@ var rend =
 function setAbout(){
   rend =
   <>
-  <div id='theRoot'>
+  <div id='theRoot' className='App'>
     
     <About/>
   </div>
@@ -48,7 +48,7 @@ function setAbout(){
 function setHome(){
   rend = 
   <>
-  <div id='theRoot'>
+  <div id='theRoot' className='App'>
     
     <Home/>
   </div>

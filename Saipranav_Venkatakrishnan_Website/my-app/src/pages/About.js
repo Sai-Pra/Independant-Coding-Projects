@@ -4,6 +4,7 @@ import '../App.css';
 import Logo from '../components/Logo.js';
 import Introduction from '../components/Introduction.js';
 import BasicCard from '../components/Card.js';
+import AboutMe from '../components/AboutMe.js';
 import ResponsiveAppBar from '../components/OptionBar';
 import { Router, Route, useNavigate, Link, Routes } from "react-router-dom";
 import Home from '../App'
@@ -26,8 +27,11 @@ function App() {
           </br> 
         </div>  
         <ResponsiveAppBar/>
-        <Introduction />
-        {/* <BasicCard /> */}
+        <AboutMe />
+        <br></br>
+        <br></br>
+        <br></br>
+        <AboutMe />
       </div>
     </>
   );
