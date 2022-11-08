@@ -25,12 +25,10 @@ function App() {
           <Logo />
           <br>
           </br> 
-        </div>  
-        <ResponsiveAppBar/>
-        <AboutMe />
-        <br></br>
-        <br></br>
-        <br></br>
+        </div>
+          <div align='center'>
+            <ResponsiveAppBar/>
+          </div>  
         <AboutMe />
       </div>
     </>

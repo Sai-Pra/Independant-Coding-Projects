@@ -24,7 +24,9 @@ function Home() {
           <br>
           </br> 
         </div>  
-        <ResponsiveAppBar/>
+          <div align='center'>
+            <ResponsiveAppBar/>
+          </div>  
         <Introduction />
         <BasicCard />
       </div>

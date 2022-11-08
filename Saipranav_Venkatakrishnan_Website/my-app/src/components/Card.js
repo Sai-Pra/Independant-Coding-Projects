@@ -18,6 +18,9 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import WTH_Image from '../William_T_Hornaday_Medal.jfif'
+import ISS_Image from '../ISS_Project.jfif'
+import React_Image from '../React.jfif'
 
 // Source for help: https://mui.com/material-ui/react-card/
 
@@ -39,6 +42,7 @@ function BasicCard(image, desc, link){
       marginTop: '10px',
       marginBottom: '10px',
       marginLeft: '30px',
+      background: 'black'
     }}>
       <CardContent>
         <img src={image} alt={desc} width='250px'/>
@@ -55,12 +59,24 @@ function BasicCard(image, desc, link){
 }
 
 
-const images = [phoenix,phoenix,phoenix,phoenix,phoenix,phoenix,phoenix,phoenix];
-const descs = ['Phoenix','Phoenix','Phoenix','Phoenix','Phoenix','Phoenix','Phoenix','Phoenix'];
+const images = [ISS_Image,WTH_Image,React_Image,phoenix,phoenix,phoenix,phoenix,phoenix];
+const descs = ['My efforts to promote conservation in the Chicagoland area',
+              'That time I sent a project to the International Space Station',
+              'The work that went behind creating this website',
+              'My experience with Arduinos (and why I love them so much)',
+              'Top 10 Anime Recommendations that are objectively correct',
+              'Phoenix',
+              'Phoenix',
+              'Phoenix'];
 const descsLength = descs.length
-const links = ['https://www.youtube.com/watch?v=p7YXXieghto','https://www.youtube.com/watch?v=p7YXXieghto',
-'https://www.youtube.com/watch?v=p7YXXieghto','https://www.youtube.com/watch?v=p7YXXieghto','https://www.youtube.com/watch?v=p7YXXieghto'
-,'https://www.youtube.com/watch?v=p7YXXieghto','https://www.youtube.com/watch?v=p7YXXieghto','https://www.youtube.com/watch?v=p7YXXieghto'];
+const links = ['https://www.dailyherald.com/news/20201109/the-future-better-watch-out-for-sai-palatine-teen-earns-rare-boy-scout-honor',
+              'https://www.dailyherald.com/article/20151109/submitted/151108929/',
+              'https://www.youtube.com/watch?v=p7YXXieghto',
+              'https://www.youtube.com/watch?v=p7YXXieghto',
+              'https://www.youtube.com/watch?v=p7YXXieghto'
+              ,'https://www.youtube.com/watch?v=p7YXXieghto',
+              'https://www.youtube.com/watch?v=p7YXXieghto',
+              'https://www.youtube.com/watch?v=p7YXXieghto'];
 
 function makeList(){
     var CardsRow = [];

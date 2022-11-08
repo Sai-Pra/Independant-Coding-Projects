@@ -27,10 +27,11 @@ const Header = () => {
       <div className = "head-text">
         <div>
           <img src={phoenix} align="left" className='Phoenix' />
-          <div align="center" className='Personal-Information'>
+          <div align="left" className='Personal-Information'>
             <h4> Hello World, my name is Sai! </h4>
             <p style={{
-              fontSize: "50%"
+              fontSize: "50%",
+              align: 'left'
               }}> 
               I'm a Computer Engineer at the University of Illinois Urbana Champaign. <br></br>
               My interests include all things Anime, Personal Coding Projects, and Spicy Food.
