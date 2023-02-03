@@ -9,6 +9,7 @@ import { Router, Route, useNavigate, Link, Routes } from "react-router-dom";
 import About from './About';
 import Blogs from './Blog';
 
+
 function Home() {
   return (
     <>

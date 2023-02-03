@@ -702,49 +702,20 @@ const ParticleConfig = {
   }
 }
 
-const Header = () => {
-  return (
-    <header style={{
-      backgroundColor: '#0d173b',
-    }}>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <div align='middle'>
-        <img src={phoenix} className='MyAvatar'/> 
-      </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <div align='middle'>
-        <Card sx={{ 
-          maxWidth: 500,
-          minWidth: 275,
-        }} style={{
-          background: 'black'
-          
-        }}>
-          <CardContent>
-            <Typography variant="header" color="white" fontSize='200%'>
-              SAIPRANAV VENKATAKRISHNAN
-              <br />
-            </Typography>
-          </CardContent>
-        </Card>  
-      </div>
-      <br></br>
-    </header>
-  )
-}
-
-function Introduction() {
+const ParticleCreator = () => {
     return (
-        <>
-            <Header/>
-        </>
-    )
-}
+      <Particles params={ParticleConfig}>
 
-export default Introduction;
+      </Particles>
+    )
+  }
+  
+  function Particle() {
+      return (
+          <>
+              <ParticleCreator/>
+          </>
+      )
+  }
+
+export default Particle;

@@ -1,5 +1,6 @@
 //import logo from './logo.svg';
 import * as React from 'react';
+import { Component } from 'react';
 import './App.css';
 import * as ReactDOM from 'react-dom/client';
 import Logo from './components/Logo.js';
@@ -21,20 +22,21 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import phoenix from './/Phoenix.jpg';
+import Particle from './components/ParticleConfig';
+import Particles from 'react-particles';
 
-{/* <div align='center'>
-<ResponsiveAppBar />
-</div> */}
 
 function App() {
   return (
     <>
       <div id='theRoot'>
         <Home/>
+        
       </div>
     </>
   );
 }
+
 
 // function App() {
 //   return (
