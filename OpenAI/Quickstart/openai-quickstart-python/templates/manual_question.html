@@ -11,12 +11,12 @@
 <body>
   <img src="{{ url_for('static', filename='Jarvis.png') }}" class="Main_Icon" />
   <h3>Enter what you want to know</h3>
-  <form action="/" method="post">
-    <!--<input type="text" name="Your Question" placeholder="Enter a Question" required />-->
-    <input type="submit" name="submit" value="Adjust for Ambient Sounds"/>
+  <form action="/manual" method="post">
+    <input type="text" name="Your Question" placeholder="Enter a Question" required />
+    <!--<input type="submit" name="submit" value="Adjust for Ambient Sounds"/>-->
     <br>
     <br>
-    <input type="submit" name="submit" value="Type Question Manually"/>
+    <input type="submit" name="submit" value="Generate Response"/>
   </form>
 <!--
   {% if waitImg %}
