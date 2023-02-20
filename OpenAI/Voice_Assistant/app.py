@@ -19,7 +19,7 @@ audio = pyaudio.PyAudio()
 app = Flask(__name__)
 app.debug = True
 app.run(host='0.0.0.0',port=5000)
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 UserVoiceInput_converted_to_Text = "Respond with 'No question entered'"
 UserVoiceRecognizer = speech_recognition.Recognizer()

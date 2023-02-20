@@ -5,7 +5,7 @@ import time
 from flask import Flask, redirect, render_template, request, url_for, request, make_response
 from werkzeug.wrappers import Request, Response
 app = Flask(__name__)
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 UserVoiceInput_converted_to_Text = "Respond with 'No question entered'"
 UserVoiceRecognizer = speech_recognition.Recognizer()
