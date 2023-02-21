@@ -6,14 +6,14 @@ import pyaudio
 import wave
 from flask import Flask, redirect, render_template, request, url_for, request, make_response
 from werkzeug.wrappers import Request, Response
+import pyttsx3
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 CHUNK = 512
-RECORD_SECONDS = 5
+RECORD_SECONDS = 3
 WAVE_OUTPUT_FILENAME = "recordedFile.wav"
 device_index = 0
-audio = pyaudio.PyAudio()
 
 
 app = Flask(__name__)
@@ -24,6 +24,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 UserVoiceInput_converted_to_Text = "Respond with 'No question entered'"
 UserVoiceRecognizer = speech_recognition.Recognizer()
 question = ""
+responseText = ""
 
 #if request.form['submit_button'] == 'Do Something':
 
@@ -52,6 +53,7 @@ def listen():
         print("Im inside listen")
         question = wav_record()
         print(question)
+
         #question = UserVoiceInput_converted_to_Text
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -62,7 +64,9 @@ def listen():
             frequency_penalty=0,
             presence_penalty=0
         )
-    return render_template("respond.html", result=response.choices[0].text)
+        responseText = response.choices[0].text
+        print(responseText)
+    return render_template("respond.html", result=responseText)
 
 @app.route("/manual", methods=("GET", "POST"))
 def manual_type():
@@ -77,11 +81,23 @@ def manual_type():
             frequency_penalty=0,
             presence_penalty=0
         )
-    return render_template("respond.html", result=response.choices[0].text)
+        responseText = response.choices[0].text
+        print(responseText)
+    return render_template("respond.html", result=responseText)
 
 @app.route("/respond", methods =("GET","POST"))
 def respond():
-    return render_template("index.html")
+    if request.method == "POST":
+        if request.form['submit'] == 'Speak the Message':
+            responseText = request.form["result"]
+            engine = pyttsx3.init()
+            engine.say(responseText)
+            print(responseText)
+            engine.runAndWait()
+            return render_template("respond.html", result=responseText)
+        else:    
+            return render_template("index.html")
+    
 
 def tell_user_to_wait():
     #print("WAIT!!!")
@@ -104,21 +120,25 @@ def direct_record():
         
                 UserVoiceInput_converted_to_Text = UserVoiceRecognizer.recognize_google(UserVoiceInput)
                     #UserVoiceInput_converted_to_Text = UserVoiceInput_converted_to_Text.lower()
-                print(UserVoiceInput_converted_to_Text)
+                return(UserVoiceInput_converted_to_Text)
                 break 
         except KeyboardInterrupt:
             #print('A KeyboardInterrupt encountered; Terminating the Program !!!')
             exit(0)
         except speech_recognition.UnknownValueError:
             print("No User Voice detected OR unintelligible noises detected OR the recognized audio cannot be matched to text !!!")
-
-#one_time = False
+    return ("Respond with No Answer")
+#one_time = False1
 
 def wav_record():
+    audio = pyaudio.PyAudio()
     print("Im inside wav_record")
-    stream = audio.open(format=FORMAT, channels=CHANNELS,
+    try:
+        stream = audio.open(format=FORMAT, channels=CHANNELS,
                 rate=RATE, input=True,input_device_index = device_index,
                 frames_per_buffer=CHUNK)
+    except Exception as e:
+        print("Exception: " + str(e)) 
     print ("recording started")
     Recordframes = []
  
@@ -148,4 +168,5 @@ def wav_record():
     except Exception as e:
         print("Exception: "+str(e))
     print(recording)
+    os.remove(WAVE_OUTPUT_FILENAME)
     return recording

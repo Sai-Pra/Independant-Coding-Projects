@@ -14,7 +14,7 @@ function Home() {
   return (
     <>
       <div id='root' style={{
-        backgroundColor: '#0d173b'
+        backgroundColor: 'black'
       }}>
         <div style={{
           background: 'black'
@@ -29,7 +29,8 @@ function Home() {
             <ResponsiveAppBar/>
           </div>  
         <Introduction />
-        <BasicCard />
+        {/* <BasicCard /> */}
+        
       </div>
     </>
   );

@@ -13,13 +13,16 @@
   <h3>Enter what you want to know</h3>
   <form action="/respond" method="post">
     <!--<input type="text" name="Your Question" placeholder="Enter a Question" required />-->
-    <input type="submit" value="Return to Main Page"/>
+    <input type="submit" name="submit" value="Speak the Message"/>
+    <br>
+    <br>
+    <input type="submit" name="submit" value="Return to Main Page"/>
+    {% if result %}
+    <div class="result" name="result">
+      <br>
+      {{ result }}
+      <br>
+    </div>
+    {% endif %}
   </form>
-  {% if result %}
-  <div class="result">
-    <br>
-    {{ result }}
-    <br>
-  </div>
-  {% endif %}
 </body>
