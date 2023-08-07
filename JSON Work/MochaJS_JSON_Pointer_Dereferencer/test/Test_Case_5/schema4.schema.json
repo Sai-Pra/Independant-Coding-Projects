@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "schema7": {
+        "$ref": "./Test_Case_5/schema7.schema.json"
+      }
+    },
+    "type": "object",
+    "properties": {
+      "prop7": {
+        "$ref": "./Test_Case_5/schema4.schema.json#/definitions/schema7"
+      }
+    },
+    "required": ["prop7"]
+  }
+  

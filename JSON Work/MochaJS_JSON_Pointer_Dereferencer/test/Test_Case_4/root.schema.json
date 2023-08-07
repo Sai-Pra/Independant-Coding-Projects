@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "./test/Test_Case_4/address.schema.json"
+    },
+    "phone": {
+      "$ref": "./test/Test_Case_4/phone.schema.json"
+    },
+    "credit_card": {
+      "$ref": "./test/Test_Case_4/credit_card.schema.json"
+    },
+    "other_property": {
+      "$ref": "./test/Test_Case_4/next.schema.json"
+    }
+  }
+}

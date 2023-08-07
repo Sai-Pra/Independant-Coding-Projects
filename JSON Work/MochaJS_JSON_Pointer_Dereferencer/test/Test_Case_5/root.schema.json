@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "schema1": {
+        "$ref": "./Test_Case_5/schema1.schema.json"
+      },
+      "schema2": {
+        "$ref": "./Test_Case_5/schema2.schema.json"
+      },
+      "schema3": {
+        "$ref": "./Test_Case_5/schema3.schema.json"
+      },
+      "schema4": {
+        "$ref": "./Test_Case_5/schema4.schema.json"
+      },
+      "schema5": {
+        "$ref": "./Test_Case_5/schema5.schema.json"
+      },
+      "schema6": {
+        "$ref": "./Test_Case_5/schema6.schema.json"
+      },
+      "schema7": {
+        "$ref": "./Test_Case_5/schema7.schema.json"
+      },
+      "schema8": {
+        "$ref": "./Test_Case_5/schema8.schema.json"
+      },
+      "schema9": {
+        "$ref": "./Test_Case_5/schema9.schema.json"
+      },
+      "schema10": {
+        "$ref": "./Test_Case_5/schema10.schema.json"
+      }
+    },
+    "type": "object",
+    "properties": {
+      "prop1": {
+        "$ref": "./Test_Case_5/root.schema.json#/definitions/schema1"
+      },
+      "prop2": {
+        "$ref": "./Test_Case_5/root.schema.json#/definitions/schema2"
+      },
+      "prop3": {
+        "$ref": "./Test_Case_5/root.schema.json#/definitions/schema3"
+      },
+      "prop4": {
+        "$ref": "./Test_Case_5/root.schema.json#/definitions/schema4"
+      }
+    },
+    "required": ["prop1", "prop2", "prop3", "prop4"]
+  }
+  

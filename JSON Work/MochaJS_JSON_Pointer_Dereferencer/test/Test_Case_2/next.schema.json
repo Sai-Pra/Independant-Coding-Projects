@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "description": "A Person",
+    "properties": {
+        "object1": {
+            "$ref": "./test/Test_Case_2/third.schema.json"
+        },
+        "object2": {
+            "$ref": "./test/Test_Case_2/fourth.schema.json"
+        }
+    }
+}

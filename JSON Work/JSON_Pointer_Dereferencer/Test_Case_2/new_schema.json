@@ -1,0 +1,1 @@
+{"type":"object","description":"A Person","properties":{"name":{"type":"string"},"age":{"type":"integer"},"number":{"type":"integer"}}}

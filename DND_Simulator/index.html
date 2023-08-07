@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Grid Overlay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #canvasContainer {
+            position: relative;
+            display: inline-block;
+        }
+
+        #canvas {
+            border: 2px solid black;
+        }
+
+        #characterContainer {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .characterImage {
+            cursor: move;
+            border: 2px solid transparent;
+        }
+
+        .characterImage.active {
+            border-color: red;
+            pointer-events: auto;
+        }
+
+        .resizeArrow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 2px solid black;
+            pointer-events: auto;
+        }
+
+        .resizeArrow.nw {
+            top: -12px;
+            left: -12px;
+            cursor: nw-resize;
+        }
+
+        .resizeArrow.n {
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: n-resize;
+        }
+
+        .resizeArrow.ne {
+            top: -12px;
+            right: -12px;
+            cursor: ne-resize;
+        }
+
+        .resizeArrow.e {
+            top: 50%;
+            right: -12px;
+            transform: translateY(-50%);
+            cursor: e-resize;
+        }
+
+        .resizeArrow.se {
+            bottom: -12px;
+            right: -12px;
+            cursor: se-resize;
+        }
+
+        .resizeArrow.s {
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: s-resize;
+        }
+
+        .resizeArrow.sw {
+            bottom: -12px;
+            left: -12px;
+            cursor: sw-resize;
+        }
+
+        .resizeArrow.w {
+            top: 50%;
+            left: -12px;
+            transform: translateY(-50%);
+            cursor: w-resize;
+        }
+
+        #buttonContainer {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="file" id="fileInput" accept="image/*">
+        <button id="loadCharacter">Load Character</button>
+    </div>
+    <div id="canvasContainer">
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <div id="characterContainer"></div>
+    </div>
+    <div id="buttonContainer">
+        <button id="cropButton" disabled>Crop</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

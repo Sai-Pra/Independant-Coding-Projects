@@ -1,0 +1,5 @@
+{
+    "type": "object",
+    "description": "A Person",
+    "$ref": "./Test_Case_2/third.schema.json"
+}

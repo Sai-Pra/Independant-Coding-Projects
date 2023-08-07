@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "integer"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}
+
+

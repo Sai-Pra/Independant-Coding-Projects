@@ -1,0 +1,1 @@
+{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"},"number":{"type":"integer"},"next":{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"},"number":{"type":"integer"},"next":{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"},"number":{"type":"integer"}}}}}}}

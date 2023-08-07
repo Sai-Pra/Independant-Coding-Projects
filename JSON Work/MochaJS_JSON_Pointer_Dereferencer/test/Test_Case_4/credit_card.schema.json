@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "cardNumber": {
+        "type": "string"
+      },
+      "expirationDate": {
+        "type": "string"
+      },
+      "securityCode": {
+        "type": "string"
+      },
+      "billingAddress": {
+        "$ref": "./test/Test_Case_4/address.schema.json"
+      }
+    }
+}
+  

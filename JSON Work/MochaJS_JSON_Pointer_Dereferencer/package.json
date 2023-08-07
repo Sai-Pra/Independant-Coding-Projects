@@ -1,0 +1,15 @@
+{
+  "name": "mochajs_json_pointer_dereferencer",
+  "version": "1.0.0",
+  "description": "Creating a Schema Concatenator with Mocha.js Unit Testing",
+  "main": "json_concatenator.js",
+  "scripts": {
+    "test": "mocha --exclude **/*example_mochaJS_setup.js"
+  },
+  "author": "Saipranav Venkatakrishnan",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}

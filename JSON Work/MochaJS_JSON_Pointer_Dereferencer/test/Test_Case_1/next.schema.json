@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "age": {
+            "type": "integer"
+        },
+        "number": {
+            "type": "integer"
+        },
+        "next": {
+            "$ref": "./test/Test_Case_1/third.schema.json"
+        }
+    }
+}

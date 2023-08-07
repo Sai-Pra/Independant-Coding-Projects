@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "schema13": {
+        "type": "string"
+      }
+    },
+    "type": "object",
+    "properties": {
+      "prop13": {
+        "$ref": "./Test_Case_5/schema12.schema.json#/definitions/schema13"
+      }
+    },
+    "required": ["prop13"]
+  }
+  

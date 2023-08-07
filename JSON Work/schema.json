@@ -1,0 +1,22 @@
+{
+  "$id": "./schema.json",
+  "type": "object",
+  "properties": {
+    "foo": {
+      "type": "string"
+    },
+    "bar": {
+      "type": "integer"
+    },
+    "ban": {
+      "$ref": "./Other_Schemas/subschema.json"
+    }
+  },
+  "required": [
+    "foo",
+    "bar",
+    "ban"
+  ]
+}
+
+
