@@ -1,12 +1,10 @@
 /* Set up CSS stuff for small, medium, large, and jumbo size, along with a CSS style that takes up the entire screen of what it's displayed on*/
+
+
+
 .large {
     font-size: 3rem;
 } 
-@media (max-width: 768px) {
-    .large {
-        font-size: 1rem;
-    }
-}
 
 .middle {
     display: flex;
@@ -24,7 +22,11 @@
     color: white;
 }
 
-.dark-theme .navbar-brand {
+.dark-theme {
+    color: white;
+}
+
+.navbar-brand {
     color: white;
 }
 
@@ -36,34 +38,16 @@
             animation: fadein 2s;
 }
 
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+  }
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+  .fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 .image-container {
     display: flex;
@@ -78,6 +62,56 @@
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.goal-project-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.goals {
+    flex: 2;
+    margin: 2% 1% 2% 2%;
+}
+
+.projects {
+    flex: 3;
+    margin: 2% 2% 2% 1%;
+}
+
+@media (max-width: 768px) {
+    .large {
+        font-size: 1rem;
+    }
+    
+    .circular-image {
+        width: 50%;
+        height: auto;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .fade-in.active {
+        opacity: 1;
+        transform: none;
+    }
+    .goal-project-container {
+        display: inline-block;
+        flex-wrap: nowrap;
+    }
+    .goals {
+        flex: none;
+        margin: 2% 2% 2% 2%;
+    }
+    .projects {
+        flex: none;
+        margin: 2% 2% 2% 2%;
+    }
+    
 }
 
 /* Media query for smaller vertical screens */
@@ -96,7 +130,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #333; /* Change to your preferred background color */
+    background-color: black; /* Change to your preferred background color */
     z-index: 100; /* Ensure it's above other elements */
 }
 
@@ -113,14 +147,16 @@
 }
 
 .about-section {
-    width: 100%;
+    width: auto;
     height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
     transition: background-color 0.5s ease-in-out;
+    background: linear-gradient(45deg, #003399, #FF6600);
+    background-size: 120% 100%;
+    transition: background 0.5s;
 }
 
 .about-content {
@@ -139,12 +175,126 @@
 }
 
 /* Change background color on hover */
-.about-section:hover {
-    background-color: #111111;
-}
 
+.about-section:hover {
+    background-position: 100% 0;
+}
 .box-image {
     /* object-fit: cover; */
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    /* background-image: linear-gradient(to top, #86377b 20%, #27273c 80%); */
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+    visibility: visible;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+    visibility: visible;
+}
+.bgBottom {
+    z-index: 5;
+    visibility: visible;
+}
+.wave {
+    position: fixed;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    pointer-events: none; /* Add this line to allow interactions through the wave */
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+.card-text {
+    font-size: 0.8rem;
+}
+
+
+.want-section {
+    width: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s ease-in-out;
+    background: linear-gradient(135deg, #7289DA, #000000, #7289DA);
+    background-size: 200% 100%;
+    transition: background 0.5s;
+    background-position: center;
+}
+
+.want-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.want-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.want-content p {
+    font-size: 1.2rem;
+}
+
+/* Change background color on hover */
+
+.want-section:hover {
+    background-size: .01% 100%;
 }
