@@ -55,14 +55,6 @@
     position: relative;
 }
 
-.circular-image {
-    border-radius: 50%;
-    width: 20%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
-
 .dot-container {
     position: relative;
     width: 300px;
@@ -91,11 +83,23 @@
     margin: 2% 2% 2% 1%;
 }
 
+.about-text-container {
+    text-align: left;
+    margin-right: 10%; /* Adjust the value as needed */
+    margin-left: 40%;
+    margin-top: 35%;
+    margin-bottom: 25%;
+}
+
 @media (max-width: 768px) {
     .large {
         font-size: 1rem;
     }
     
+    .jumbo {
+        font-size: 2rem;
+    }
+
     .circular-image {
         width: 50%;
         height: auto;
@@ -122,6 +126,16 @@
     .projects {
         flex: none;
         margin: 2% 2% 2% 2%;
+    }
+    .about-text-container {
+        text-align: center;
+        margin-right: 10%; /* Adjust the value as needed */
+        margin-left: 10%;
+        margin-top: 35%;
+        margin-bottom: 25%;
+    }
+    .about-logo-image {
+        display: none;
     }
     
 }
@@ -159,21 +173,70 @@
     align-items: flex-start; /* Change align-items to flex-start */
 }
 
-.text-container {
+.fullscreen-experience {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 200vh; /* Set the height to 100vh for fullscreen */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start; /* Change align-items to flex-start */
+}
+
+.accordion {
+    border: 2px solid white;
+}
+
+.fullscreen-and-half {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 150vh; /* Set the height to 100vh for fullscreen */
+    overflow: hidden;
+    display: flex;
+    /* align-items: flex-start; Change align-items to flex-start */
+}
+
+.intro-text-container {
     text-align: left;
     margin-left: 10%; /* Adjust the value as needed */
-    margin-top: 15%;
+    margin-top: 0%;
     margin-bottom: 25%;
 }
 
-.logo-image {
+.UIUC-logo-image {
     position: absolute;
-    top: calc(10% + 10px); /* Adjust the value for vertical positioning */
-    right: 15%; /* Adjust the value for horizontal positioning */
-    width: 550px; /* Adjust the width as needed */
-    z-index: -10; /* Move the image behind the text */
+    top: calc(10% + 10px);
+    right: 15%;
+    width: 550px;
+    z-index: -10;
 }
 
+.about-logo-image {
+    position: absolute;
+    border-radius: 50%; /* To create a circular shape */
+    border: 2px solid transparent; /* Transparent border to create the space for the rings */
+    box-sizing: border-box;
+    padding: 10px;
+    top: calc(25% + 10px);
+    right: 65%;
+    width: 400px;
+    z-index: -10;
+
+    /* Outer ring gradient border */
+    background: linear-gradient(45deg, #003399, #003399, #FF6600);
+    -webkit-background-clip: padding-box; /* For Safari/Chrome */
+    background-clip: padding-box;
+
+    /* Inner ring gradient background */
+    overflow: hidden;
+}
 
 .about-section {
     width: auto;
@@ -289,7 +352,15 @@
 }
 
 .card-text {
-    font-size: 0.8rem;
+    font-size: 1 rem;
+}
+
+.card {
+    transition: box-shadow 0.3s ease-in-out; /* Adding a smooth transition for the shadow */
+}
+
+.card:hover {
+    box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.5); /* Grey shadow on hover */
 }
 
 

@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('scroll', function() {
     var navbar = document.querySelector('.navbar');
     if (window.scrollY === 0) {
-        navbar.style.position = 'fixed';
+        navbar.style.position = 'sticky';
     } else {
         navbar.style.position = 'sticky';
     }
